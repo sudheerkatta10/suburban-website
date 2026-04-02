@@ -1,0 +1,1546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Suburban Liquors — Newark, Delaware's premier liquor store. Shop craft beers, fine wines, and premium spirits. Great deals, friendly service, and a curated selection for every taste and budget.">
+  <title>Suburban Liquors — Newark, Delaware</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Dancing+Script:wght@600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LiquorStore",
+    "name": "Suburban Liquors",
+    "description": "Newark, Delaware's premier liquor store. Craft beers, fine wines, and premium spirits curated for every taste and budget.",
+    "url": "https://suburbanliquors.com",
+    "telephone": "+13022867049",
+    "email": "suburbanliq@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "204 Suburban Plaza",
+      "addressLocality": "Newark",
+      "addressRegion": "DE",
+      "postalCode": "19711",
+      "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 39.6837,
+      "longitude": -75.7497
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+        "opens": "09:00",
+        "closes": "23:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Sunday",
+        "opens": "10:00",
+        "closes": "20:00"
+      }
+    ],
+    "servesCuisine": ["Beer","Wine","Spirits","Craft Beer"],
+    "priceRange": "$$",
+    "currenciesAccepted": "USD",
+    "paymentAccepted": "Cash, Credit Card",
+    "hasMap": "https://maps.google.com/maps?q=204+Suburban+Plaza,+Newark,+DE+19711"
+  }
+  </script>
+</head>
+<body>
+
+<!-- ═══════════════ NAV ═══════════════ -->
+<nav style="background:#1E2E14; position:sticky; top:0; z-index:100;">
+  <div style="max-width:1280px; margin:0 auto; padding:0 20px;">
+    <div style="display:flex; align-items:center; justify-content:space-between; height:64px;">
+
+      <!-- Logo -->
+      <div style="display:flex; align-items:center; gap:10px; cursor:pointer;" onclick="go('home')">
+        <img src="images/logo.png" alt="Suburban Liquors Logo" style="height:48px; width:48px; object-fit:contain; border-radius:50%;">
+        <span class="font-display" style="color:var(--cream); font-size:22px; letter-spacing:.06em; line-height:1;">SUBURBAN<br>LIQUORS</span>
+      </div>
+
+      <!-- Desktop links -->
+      <div style="display:flex; gap:28px; align-items:center;" class="desk-nav">
+        <a href="tel:+13022867049" style="display:flex;align-items:center;gap:6px;color:var(--gold);font-size:13px;font-weight:600;text-decoration:none;letter-spacing:.02em;border:1px solid rgba(200,164,60,.35);border-radius:99px;padding:4px 12px;transition:background 0.15s;" onmouseover="this.style.background='rgba(200,164,60,.12)'" onmouseout="this.style.background='transparent'">
+          <svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+          (302) 286-7049
+        </a>
+        <span class="nav-link active" id="nl-home"    onclick="go('home')">Home</span>
+        <span class="nav-link"        id="nl-shop"    onclick="go('shop')">Shop</span>
+        <span class="nav-link"        id="nl-deals"   onclick="go('deals')">Deals</span>
+        <span class="nav-link"        id="nl-about"   onclick="go('about')">About</span>
+        <span class="nav-link"        id="nl-store"   onclick="go('store')">Store Info</span>
+        <span class="nav-link"        id="nl-ai"      onclick="go('ai')">AI Assistant</span>
+        <span class="nav-link"        id="nl-contact" onclick="go('contact')">Contact</span>
+      </div>
+
+      <!-- Hamburger -->
+      <button onclick="toggleMob()" style="display:none; background:none; border:none; color:var(--cream); cursor:pointer; padding:6px;" id="hamburger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mob-menu">
+        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+          <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile dropdown -->
+    <div id="mob-menu" class="hidden" style="padding-bottom:16px; border-top:1px solid rgba(255,255,255,.1);">
+      <div style="display:flex; flex-direction:column; gap:12px; padding-top:14px;">
+        <span class="nav-link" style="font-size:17px;" onclick="go('home');   closeMob()">Home</span>
+        <span class="nav-link" style="font-size:17px;" onclick="go('shop');   closeMob()">Shop</span>
+        <span class="nav-link" style="font-size:17px;" onclick="go('deals');  closeMob()">Deals</span>
+        <span class="nav-link" style="font-size:17px;" onclick="go('about');  closeMob()">About</span>
+        <span class="nav-link" style="font-size:17px;" onclick="go('store');  closeMob()">Store Info</span>
+        <span class="nav-link" style="font-size:17px;" onclick="go('ai');     closeMob()">AI Assistant</span>
+        <span class="nav-link" style="font-size:17px;" onclick="go('contact');closeMob()">Contact</span>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ══════════════════════════════════════
+     HOME
+══════════════════════════════════════ -->
+<div id="pg-home" class="page">
+
+  <!-- Hero Slideshow -->
+  <div id="hero-slider" style="position:relative; overflow:hidden;">
+  <div id="hero-track">
+
+    <!-- Slide 1: Hero -->
+    <div class="hero-slide" style="background:linear-gradient(135deg,#1E2E14 0%,#2C3E1E 45%,#3A5028 100%); position:relative; overflow:hidden;">
+      <!-- grain overlay -->
+      <div style="position:absolute;inset:0;opacity:.18;background-image:url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22><filter id=%22n%22><feTurbulence type=%22fractalNoise%22 baseFrequency=%220.7%22 numOctaves=%223%22 stitchTiles=%22stitch%22/><feColorMatrix type=%22saturate%22 values=%220%22/></filter><rect width=%22200%22 height=%22200%22 filter=%22url(%23n)%22 opacity=%220.2%22/></svg>');"></div>
+      <!-- glow -->
+      <div style="position:absolute;top:40%;left:30%;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(200,164,60,.18),transparent 70%);pointer-events:none;"></div>
+
+      <div style="max-width:1280px;margin:0 auto;padding:80px 24px;width:100%;position:relative;">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;">
+
+          <!-- Left -->
+          <div>
+            <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(200,164,60,.15);border:1px solid rgba(200,164,60,.35);color:var(--gold);border-radius:99px;padding:5px 14px;font-size:13px;font-weight:600;margin-bottom:20px;">
+              🎉 Under New Ownership — Better Selection, Better Service
+            </div>
+            <h1 class="font-display" style="color:var(--cream);font-size:clamp(52px,7vw,88px);line-height:.95;letter-spacing:-.01em;margin-bottom:24px;">
+              FIND YOUR<br>PERFECT<br><span style="color:var(--gold);">DRINK</span>
+            </h1>
+            <p style="color:rgba(242,237,227,.75);font-size:17px;line-height:1.7;margin-bottom:32px;max-width:440px;">
+              Newark's premier liquor store. Craft beers, fine wines, premium spirits — curated for every taste and budget.
+            </p>
+
+            <!-- Search -->
+            <div style="position:relative;max-width:460px;margin-bottom:32px;">
+              <input id="hero-search" type="text" placeholder="Search drinks, brands, categories…"
+                style="width:100%;padding:15px 52px 15px 18px;border-radius:12px;border:1.5px solid rgba(242,237,227,.2);background:rgba(255,255,255,.07);color:var(--cream);font-size:15px;outline:none;backdrop-filter:blur(8px);"
+                onfocus="this.style.borderColor='rgba(200,164,60,.6)'"
+                onblur="this.style.borderColor='rgba(242,237,227,.2)'"
+                onkeydown="if(event.key==='Enter')go('shop')">
+              <button onclick="go('shop')" aria-label="Search products" style="position:absolute;right:12px;top:50%;transform:translateY(-50%);background:none;border:none;color:var(--gold);cursor:pointer;padding:4px;transition:transform 0.15s ease;" onmouseover="this.style.transform='translateY(-50%) scale(1.15)'" onmouseout="this.style.transform='translateY(-50%) scale(1)'">
+                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+              </button>
+            </div>
+
+            <div style="display:flex;flex-wrap:wrap;gap:14px;">
+              <button class="btn-gold" onclick="go('shop')">BROWSE INVENTORY</button>
+              <button class="btn-outline" onclick="go('ai')">Ask AI Assistant</button>
+            </div>
+          </div>
+
+          <!-- Right: Mascot -->
+          <div style="display:flex;justify-content:flex-end;">
+            <div style="position:relative;">
+              <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:480px;height:480px;border-radius:50%;background:radial-gradient(circle,rgba(200,164,60,.45) 0%,rgba(200,164,60,.12) 45%,transparent 70%);pointer-events:none;"></div>
+              <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:420px;height:420px;border-radius:50%;border:1.5px solid rgba(200,164,60,.25);pointer-events:none;"></div>
+              <img src="images/hero.png" alt="Suburban Liquors Mascot"
+                style="width:clamp(260px,30vw,420px);height:auto;position:relative;object-fit:contain;filter:drop-shadow(0 0 40px rgba(200,164,60,.6)) drop-shadow(0 20px 50px rgba(0,0,0,.4)) brightness(1.08) saturate(1.15) contrast(1.04);">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 2: Extended Hours -->
+    <div class="hero-slide" style="background:#1A2810;">
+      <div style="max-width:1280px;margin:0 auto;padding:80px 24px;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;">
+
+        <!-- Left: Image -->
+        <img src="images/hours.png" alt="Extended Hours — Mon-Sat 9AM-11PM, Sunday 10AM-8PM"
+          style="width:100%;max-height:420px;object-fit:contain;object-position:left center;border-radius:16px;display:block;">
+
+        <!-- Right: What's New -->
+        <div>
+          <p style="color:var(--gold);font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;margin-bottom:12px;">What's New</p>
+          <h2 class="font-display" style="color:var(--cream);font-size:clamp(28px,3.5vw,44px);letter-spacing:.02em;margin-bottom:32px;line-height:1.15;">WE'VE LEVELED UP</h2>
+          <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:18px;">
+            <li style="display:flex;align-items:flex-start;gap:14px;">
+              <span style="color:var(--gold);font-size:20px;line-height:1.3;">★</span>
+              <div><strong style="color:var(--cream);font-size:15px;">Under New Ownership</strong><p style="color:rgba(242,237,227,.6);font-size:13px;margin:3px 0 0;">Fresh vision, same great location — now better than ever.</p></div>
+            </li>
+            <li style="display:flex;align-items:flex-start;gap:14px;">
+              <span style="color:var(--gold);font-size:20px;line-height:1.3;">★</span>
+              <div><strong style="color:var(--cream);font-size:15px;">Bigger Collection</strong><p style="color:rgba(242,237,227,.6);font-size:13px;margin:3px 0 0;">Hundreds of new wines, spirits, and craft beers added.</p></div>
+            </li>
+            <li style="display:flex;align-items:flex-start;gap:14px;">
+              <span style="color:var(--gold);font-size:20px;line-height:1.3;">★</span>
+              <div><strong style="color:var(--cream);font-size:15px;">Lower Prices</strong><p style="color:rgba(242,237,227,.6);font-size:13px;margin:3px 0 0;">Competitive pricing across the entire store, every day.</p></div>
+            </li>
+            <li style="display:flex;align-items:flex-start;gap:14px;">
+              <span style="color:var(--gold);font-size:20px;line-height:1.3;">★</span>
+              <div><strong style="color:var(--cream);font-size:15px;">More Discounts</strong><p style="color:rgba(242,237,227,.6);font-size:13px;margin:3px 0 0;">Regular deals, bundle savings, and Wine Wednesday specials.</p></div>
+            </li>
+            <li style="display:flex;align-items:flex-start;gap:14px;">
+              <span style="color:var(--gold);font-size:20px;line-height:1.3;">★</span>
+              <div><strong style="color:var(--cream);font-size:15px;">Expanded THC Products</strong><p style="color:rgba(242,237,227,.6);font-size:13px;margin:3px 0 0;">A growing selection of hemp-derived THC beverages and edibles.</p></div>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+  </div><!-- /hero-track -->
+
+    <!-- Prev / Next arrows -->
+    <button onclick="heroSlide(-1)" aria-label="Previous slide" style="position:absolute;left:16px;top:50%;transform:translateY(-50%);background:rgba(0,0,0,.45);border:none;border-radius:50%;width:44px;height:44px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:white;z-index:10;transition:background 0.15s;" onmouseover="this.style.background='rgba(0,0,0,.7)'" onmouseout="this.style.background='rgba(0,0,0,.45)'">
+      <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <button onclick="heroSlide(1)" aria-label="Next slide" style="position:absolute;right:16px;top:50%;transform:translateY(-50%);background:rgba(0,0,0,.45);border:none;border-radius:50%;width:44px;height:44px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:white;z-index:10;transition:background 0.15s;" onmouseover="this.style.background='rgba(0,0,0,.7)'" onmouseout="this.style.background='rgba(0,0,0,.45)'">
+      <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
+
+    <!-- Dot indicators -->
+    <div style="position:absolute;bottom:20px;left:50%;transform:translateX(-50%);display:flex;gap:10px;z-index:10;">
+      <button class="slide-dot active" onclick="heroGoTo(0)" style="width:10px;height:10px;border-radius:50%;border:none;cursor:pointer;background:var(--gold);opacity:1;padding:0;transition:background 0.2s,opacity 0.2s;"></button>
+      <button class="slide-dot" onclick="heroGoTo(1)" style="width:10px;height:10px;border-radius:50%;border:none;cursor:pointer;background:rgba(255,255,255,.45);opacity:1;padding:0;transition:background 0.2s,opacity 0.2s;"></button>
+    </div>
+
+  </div><!-- /hero-slider -->
+
+  <!-- Deals Strip -->
+  <section style="padding:80px 0;background:var(--cream);">
+    <div style="max-width:1280px;margin:0 auto;padding:0 24px;">
+      <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:40px;">
+        <div>
+          <h2 class="font-display" style="color:var(--olive-deep);font-size:clamp(34px,4vw,52px);letter-spacing:.02em;">WINE DEALS</h2>
+          <p style="color:var(--olive);font-size:13px;margin-top:4px;">Save on wine every day — extra savings every Wednesday</p>
+        </div>
+        <button onclick="go('deals')" style="background:none;border:none;color:var(--olive-dark);font-weight:600;font-size:14px;cursor:pointer;text-decoration:underline;text-underline-offset:3px;">See All Deals →</button>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;" class="deals-strip">
+        <div style="background:linear-gradient(135deg,#5A2A3A,#8B3A5A);border-radius:18px;padding:32px;text-align:center;position:relative;">
+          <div style="position:absolute;top:12px;right:12px;background:var(--gold);color:#1E2E14;font-size:10px;font-weight:800;padding:3px 10px;border-radius:99px;text-transform:uppercase;">Wed Only</div>
+          <div style="font-size:44px;margin-bottom:12px;">🍷</div>
+          <div class="font-display" style="color:var(--cream);font-size:18px;margin-bottom:6px;">Wine Wednesday</div>
+          <div style="font-size:38px;font-weight:800;color:var(--gold);line-height:1;">10% OFF</div>
+          <p style="color:rgba(242,237,227,.6);font-size:13px;margin-top:8px;">Buy any 3 wines</p>
+        </div>
+        <div style="background:linear-gradient(135deg,#3A1A4A,#6B2A8B);border-radius:18px;padding:32px;text-align:center;position:relative;">
+          <div style="position:absolute;top:12px;right:12px;background:var(--gold);color:#1E2E14;font-size:10px;font-weight:800;padding:3px 10px;border-radius:99px;text-transform:uppercase;">Wed Only</div>
+          <div style="font-size:44px;margin-bottom:12px;">🍷🍷</div>
+          <div class="font-display" style="color:var(--cream);font-size:18px;margin-bottom:6px;">Wine Wednesday</div>
+          <div style="font-size:38px;font-weight:800;color:var(--gold);line-height:1;">15% OFF</div>
+          <p style="color:rgba(242,237,227,.6);font-size:13px;margin-top:8px;">Buy 6+ wines</p>
+        </div>
+        <div style="background:linear-gradient(135deg,#1E2E14,#3A4E2A);border-radius:18px;padding:32px;text-align:center;">
+          <div style="font-size:44px;margin-bottom:12px;">🍷</div>
+          <div class="font-display" style="color:var(--cream);font-size:18px;margin-bottom:6px;">Every Day</div>
+          <div style="font-size:38px;font-weight:800;color:var(--gold);line-height:1;">10–15% OFF</div>
+          <p style="color:rgba(242,237,227,.6);font-size:13px;margin-top:8px;">Buy 6 or 12 wines</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Categories -->
+  <section style="padding:80px 0;background:linear-gradient(180deg,#EAF5E0,#F5F8EE);">
+    <div style="max-width:1280px;margin:0 auto;padding:0 24px;">
+      <div style="text-align:center;margin-bottom:48px;">
+        <h2 class="font-display" style="color:var(--olive-deep);font-size:clamp(36px,5vw,56px);letter-spacing:.02em;">SHOP BY CATEGORY</h2>
+        <p style="color:var(--olive);margin-top:6px;">Find exactly what you're looking for</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;" class="cat-grid">
+        <div class="cat-card" onclick="shopCat('beer')"  style="background:linear-gradient(160deg,#3A5028,#1E2E14);">
+          <div style="padding:36px 20px;text-align:center;color:white;">
+            <div style="font-size:52px;margin-bottom:10px;">🍺</div>
+            <div class="font-display" style="font-size:32px;letter-spacing:.04em;">BEER</div>
+            <div style="font-size:13px;opacity:.7;margin-top:4px;">Craft &amp; Import</div>
+          </div>
+        </div>
+        <div class="cat-card" onclick="shopCat('wine')"  style="background:linear-gradient(160deg,#6B3A4A,#3A1A28);">
+          <div style="padding:36px 20px;text-align:center;color:white;">
+            <div style="font-size:52px;margin-bottom:10px;">🍷</div>
+            <div class="font-display" style="font-size:32px;letter-spacing:.04em;">WINE</div>
+            <div style="font-size:13px;opacity:.7;margin-top:4px;">Red, White &amp; Rosé</div>
+          </div>
+        </div>
+        <div class="cat-card" onclick="shopCat('whiskey')" style="background:linear-gradient(160deg,#8B5A2A,#4A2A0A);">
+          <div style="padding:36px 20px;text-align:center;color:white;">
+            <div style="font-size:52px;margin-bottom:10px;">🥃</div>
+            <div class="font-display" style="font-size:32px;letter-spacing:.04em;">WHISKEY</div>
+            <div style="font-size:13px;opacity:.7;margin-top:4px;">Bourbon, Scotch &amp; More</div>
+          </div>
+        </div>
+        <div class="cat-card" onclick="shopCat('vodka')"  style="background:linear-gradient(160deg,#3A4A6A,#1A2A4A);">
+          <div style="padding:36px 20px;text-align:center;color:white;">
+            <div style="font-size:52px;margin-bottom:10px;">🍸</div>
+            <div class="font-display" style="font-size:32px;letter-spacing:.04em;">VODKA</div>
+            <div style="font-size:13px;opacity:.7;margin-top:4px;">Premium Spirits</div>
+          </div>
+        </div>
+        <div class="cat-card" onclick="shopCat('rum')" style="background:linear-gradient(160deg,#7A3A1A,#3A1A0A);">
+          <div style="padding:36px 20px;text-align:center;color:white;">
+            <div style="font-size:52px;margin-bottom:10px;">🍹</div>
+            <div class="font-display" style="font-size:32px;letter-spacing:.04em;">RUM</div>
+            <div style="font-size:13px;opacity:.7;margin-top:4px;">Dark, White &amp; Spiced</div>
+          </div>
+        </div>
+        <div class="cat-card" onclick="shopCat('gin')" style="background:linear-gradient(160deg,#1A4A3A,#0A2A1E);">
+          <div style="padding:36px 20px;text-align:center;color:white;">
+            <div style="font-size:52px;margin-bottom:10px;">🌿</div>
+            <div class="font-display" style="font-size:32px;letter-spacing:.04em;">GIN</div>
+            <div style="font-size:13px;opacity:.7;margin-top:4px;">London Dry &amp; Craft</div>
+          </div>
+        </div>
+        <div class="cat-card" onclick="shopCat('cocktails')" style="background:linear-gradient(160deg,#5A1A5A,#2A0A3A);">
+          <div style="padding:36px 20px;text-align:center;color:white;">
+            <div style="font-size:52px;margin-bottom:10px;">🍸</div>
+            <div class="font-display" style="font-size:28px;letter-spacing:.04em;">COCKTAILS</div>
+            <div style="font-size:13px;opacity:.7;margin-top:4px;">RTD &amp; Mixers</div>
+          </div>
+        </div>
+        <div class="cat-card" onclick="shopCat('flavored')" style="background:linear-gradient(160deg,#6A2A5A,#3A0A3A);">
+          <div style="padding:36px 20px;text-align:center;color:white;">
+            <div style="font-size:52px;margin-bottom:10px;">🍓</div>
+            <div class="font-display" style="font-size:22px;letter-spacing:.04em;">FLAVORED LIQUORS</div>
+            <div style="font-size:13px;opacity:.7;margin-top:4px;">Schnapps, Shots &amp; More</div>
+          </div>
+        </div>
+<div class="cat-card" onclick="shopCat('mixers')" style="background:linear-gradient(160deg,#2A4A5A,#0A2030);">
+          <div style="padding:36px 20px;text-align:center;color:white;">
+            <div style="font-size:52px;margin-bottom:10px;">🥤</div>
+            <div class="font-display" style="font-size:20px;letter-spacing:.04em;">NON-ALCOHOLIC MIXERS</div>
+            <div style="font-size:13px;opacity:.7;margin-top:4px;">Sodas, Tonics &amp; Juices</div>
+          </div>
+        </div>
+        <div class="cat-card" onclick="shopCat('thc')" style="background:linear-gradient(160deg,#2D5A1E,#4A8A2A);position:relative;box-shadow:0 0 0 3px var(--gold),0 0 24px 4px rgba(196,160,60,.55);outline:none;">
+          <div style="position:absolute;top:10px;left:10px;background:var(--gold);color:#1A2810;font-size:10px;font-weight:800;padding:3px 10px;border-radius:20px;letter-spacing:.08em;text-transform:uppercase;">🔥 HOT</div>
+          <div style="position:absolute;top:10px;right:10px;background:#fff;color:#2D5A1E;font-size:10px;font-weight:700;padding:3px 8px;border-radius:20px;letter-spacing:.06em;">NEW</div>
+          <div style="padding:36px 20px;text-align:center;color:white;">
+            <div style="font-size:52px;margin-bottom:10px;">🍃</div>
+            <div class="font-display" style="font-size:22px;letter-spacing:.04em;color:var(--gold);">THC BEVERAGES</div>
+            <div style="font-size:13px;opacity:.85;margin-top:4px;">Hemp-Derived</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Popular -->
+  <section style="padding:80px 0;background:linear-gradient(180deg,#F8EDD8,#FDF4E4);">
+    <div style="max-width:1280px;margin:0 auto;padding:0 24px;">
+      <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:40px;">
+        <div>
+          <h2 class="font-display" style="color:var(--olive-deep);font-size:clamp(34px,4vw,52px);letter-spacing:.02em;">POPULAR TODAY</h2>
+          <p style="color:var(--olive);font-size:13px;margin-top:4px;">What customers are loving right now</p>
+        </div>
+        <button onclick="go('shop')" style="background:none;border:none;color:var(--olive);font-weight:600;font-size:14px;cursor:pointer;text-decoration:underline;text-underline-offset:3px;">View All →</button>
+      </div>
+      <!-- Carousel wrapper -->
+      <div style="position:relative;">
+        <!-- Prev arrow -->
+        <button id="pop-prev" onclick="popNav(-1)" aria-label="Previous products"
+          style="position:absolute;left:-22px;top:50%;transform:translateY(-50%);z-index:2;background:var(--gold);border:none;border-radius:50%;width:44px;height:44px;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.18);display:flex;align-items:center;justify-content:center;opacity:.35;transition:opacity .2s;">
+          <svg width="18" height="18" fill="none" stroke="#1E2E14" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="15,18 9,12 15,6"/></svg>
+        </button>
+        <!-- Sliding track -->
+        <div style="overflow:hidden;">
+          <div id="popular-track" style="display:flex;transition:transform .45s cubic-bezier(.4,0,.2,1);"></div>
+        </div>
+        <!-- Next arrow -->
+        <button id="pop-next" onclick="popNav(1)" aria-label="Next products"
+          style="position:absolute;right:-22px;top:50%;transform:translateY(-50%);z-index:2;background:var(--gold);border:none;border-radius:50%;width:44px;height:44px;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.18);display:flex;align-items:center;justify-content:center;opacity:1;transition:opacity .2s;">
+          <svg width="18" height="18" fill="none" stroke="#1E2E14" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="9,18 15,12 9,6"/></svg>
+        </button>
+        <!-- Dots -->
+        <div id="pop-dots" style="display:flex;justify-content:center;align-items:center;gap:8px;margin-top:28px;"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tagline Banner (Screenshot 3) -->
+  <section style="background:linear-gradient(135deg,#334228,#5A7048);padding:80px 0;overflow:hidden;">
+    <div style="max-width:1280px;margin:0 auto;padding:0 24px;">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;">
+        <img src="images/store.png" alt="Better Selection, Better Service"
+          loading="lazy"
+          style="width:100%;border-radius:20px;box-shadow:0 20px 60px rgba(0,0,0,.35);">
+        <div>
+          <h2 class="font-script" style="color:var(--cream);font-size:clamp(36px,4vw,60px);line-height:1.2;margin-bottom:20px;">Experience the Difference</h2>
+          <p style="color:rgba(242,237,227,.8);font-size:16px;line-height:1.75;margin-bottom:28px;">
+            Under new ownership, Suburban Liquors is bringing Newark a renewed energy, expanded selection, and outstanding service. Come in and feel the difference.
+          </p>
+          <button class="btn-gold" onclick="go('about')">OUR STORY</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section style="padding:80px 0;background:var(--cream);">
+    <div style="max-width:1280px;margin:0 auto;padding:0 24px;">
+      <div style="text-align:center;margin-bottom:48px;">
+        <h2 class="font-display" style="color:var(--olive-deep);font-size:clamp(32px,4vw,52px);letter-spacing:.03em;">WHAT OUR CUSTOMERS SAY</h2>
+        <p style="color:var(--olive);font-size:14px;margin-top:8px;">Real reviews from Google</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;" class="test-grid">
+
+        <!-- Review 1: Conner O'Rourke -->
+        <div style="background:#fff;border-radius:16px;padding:32px 28px;box-shadow:0 4px 24px rgba(0,0,0,.07);display:flex;flex-direction:column;gap:16px;">
+          <div style="display:flex;align-items:center;gap:14px;">
+            <div style="width:46px;height:46px;border-radius:50%;background:var(--olive);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:18px;flex-shrink:0;">C</div>
+            <div>
+              <div style="font-weight:700;color:var(--olive-deep);font-size:15px;">Conner O'Rourke</div>
+              <div style="font-size:12px;color:#888;">8 reviews &middot; 1 photo</div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;">
+            <span style="color:#F5A623;font-size:18px;">★★★★★</span>
+            <span style="font-size:12px;color:#aaa;">3 years ago</span>
+          </div>
+          <p style="color:#444;font-size:14px;line-height:1.7;margin:0;">"This store has convenient hours and convenient location, located near many shopping options so you can pick up drinks while running other errands like grocery or pizza. The staff is very friendly and have a great sense of humor. Prices are comparable to other stores nearby."</p>
+          <div style="display:flex;align-items:center;gap:6px;margin-top:auto;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-label="Google"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+            <span style="font-size:12px;color:#888;">Google Review</span>
+          </div>
+        </div>
+
+        <!-- Review 2: Van -->
+        <div style="background:#fff;border-radius:16px;padding:32px 28px;box-shadow:0 4px 24px rgba(0,0,0,.07);display:flex;flex-direction:column;gap:16px;">
+          <div style="display:flex;align-items:center;gap:14px;">
+            <div style="width:46px;height:46px;border-radius:50%;background:#4A7C59;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:18px;flex-shrink:0;">V</div>
+            <div>
+              <div style="font-weight:700;color:var(--olive-deep);font-size:15px;">Van</div>
+              <div style="font-size:12px;color:#888;">Local Guide &middot; 188 reviews</div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;">
+            <span style="color:#F5A623;font-size:18px;">★★★★★</span>
+            <span style="font-size:12px;color:#aaa;">4 weeks ago</span>
+          </div>
+          <p style="color:#444;font-size:14px;line-height:1.7;margin:0;">"Great wine variety from Tuscany, and amazing prices!! Way better than 'total wine' store (I mean it)"</p>
+          <div style="display:flex;align-items:center;gap:6px;margin-top:auto;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-label="Google"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+            <span style="font-size:12px;color:#888;">Google Review</span>
+          </div>
+        </div>
+
+        <!-- Review 3: Michael Brown -->
+        <div style="background:#fff;border-radius:16px;padding:32px 28px;box-shadow:0 4px 24px rgba(0,0,0,.07);display:flex;flex-direction:column;gap:16px;">
+          <div style="display:flex;align-items:center;gap:14px;">
+            <div style="width:46px;height:46px;border-radius:50%;background:#7A5C3A;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:18px;flex-shrink:0;">M</div>
+            <div>
+              <div style="font-weight:700;color:var(--olive-deep);font-size:15px;">Michael Brown</div>
+              <div style="font-size:12px;color:#888;">Local Guide &middot; 16 reviews</div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;">
+            <span style="color:#F5A623;font-size:18px;">★★★★</span><span style="color:#ddd;font-size:18px;">★</span>
+            <span style="font-size:12px;color:#aaa;">10 months ago</span>
+          </div>
+          <p style="color:#444;font-size:14px;line-height:1.7;margin:0;">"Easy to get to, and has a decent selection of just about everything. Just about always had my favorite even though it can be hard to find."</p>
+          <div style="display:flex;align-items:center;gap:6px;margin-top:auto;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-label="Google"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+            <span style="font-size:12px;color:#888;">Google Review</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- CTA to Google Reviews -->
+      <div style="text-align:center;margin-top:40px;">
+        <a href="https://www.google.com/maps/place/Suburban+Liquor/@39.6681883,-75.7789385,17z/data=!4m8!3m7!1s0x89c7a9640e71d5b9:0xf61a945b9fa79cda!8m2!3d39.6681883!4d-75.7763636!9m1!1b1!16s%2Fg%2F1vrqblr4?entry=ttu&g_ep=EgoyMDI2MDMzMC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer"
+          style="display:inline-flex;align-items:center;gap:8px;background:var(--olive-deep);color:var(--cream);padding:14px 28px;border-radius:8px;font-weight:600;font-size:14px;text-decoration:none;letter-spacing:.04em;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+          See All Reviews on Google
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer style="background:#121C0A;padding:56px 24px 32px;">
+    <div style="max-width:1280px;margin:0 auto;">
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;margin-bottom:40px;" class="foot-grid">
+        <div>
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;">
+            <img src="images/logo.png" alt="Suburban Liquors" loading="lazy" style="width:52px;height:52px;object-fit:contain;border-radius:50%;">
+            <div class="font-display" style="color:var(--cream);font-size:22px;letter-spacing:.06em;line-height:1.1;">SUBURBAN<br>LIQUORS</div>
+          </div>
+          <p style="color:rgba(242,237,227,.5);font-size:14px;line-height:1.7;">204 Suburban Plaza<br>Newark, Delaware 19711</p>
+        </div>
+        <div>
+          <div style="color:var(--cream);font-weight:600;font-size:14px;margin-bottom:10px;">HOURS</div>
+          <p style="color:rgba(242,237,227,.55);font-size:14px;line-height:1.8;">Mon – Sat: 9:00 AM – 11:00 PM<br>Sunday: 10:00 AM – 8:00 PM</p>
+        </div>
+        <div>
+          <div style="color:var(--cream);font-weight:600;font-size:14px;margin-bottom:10px;">QUICK LINKS</div>
+          <div style="display:flex;flex-direction:column;gap:7px;">
+            <span onclick="go('shop')"    style="color:rgba(242,237,227,.55);font-size:14px;cursor:pointer;transition:color 0.15s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(242,237,227,.55)'">Shop</span>
+            <span onclick="go('deals')"   style="color:rgba(242,237,227,.55);font-size:14px;cursor:pointer;transition:color 0.15s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(242,237,227,.55)'">Deals</span>
+            <span onclick="go('store')"   style="color:rgba(242,237,227,.55);font-size:14px;cursor:pointer;transition:color 0.15s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(242,237,227,.55)'">Store Info</span>
+            <span onclick="go('contact')" style="color:rgba(242,237,227,.55);font-size:14px;cursor:pointer;transition:color 0.15s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(242,237,227,.55)'">Contact</span>
+          </div>
+        </div>
+      </div>
+      <!-- Social Media -->
+      <div style="border-top:1px solid rgba(242,237,227,.1);padding-top:32px;margin-bottom:24px;text-align:center;">
+        <div style="color:var(--gold);font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:.12em;margin-bottom:6px;">Follow Us</div>
+        <div style="color:rgba(242,237,227,.45);font-size:13px;margin-bottom:18px;">Stay connected for deals, events &amp; more</div>
+        <div style="display:flex;justify-content:center;gap:16px;">
+          <!-- Facebook -->
+          <a href="https://www.facebook.com/suburban_liquors" target="_blank" rel="noopener"
+            style="display:flex;flex-direction:column;align-items:center;gap:8px;text-decoration:none;color:rgba(242,237,227,.6);transition:color 0.15s;"
+            onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(242,237,227,.6)'">
+            <div style="width:48px;height:48px;border-radius:12px;background:#1877f2;display:flex;align-items:center;justify-content:center;transition:transform 0.15s;box-shadow:0 4px 14px rgba(24,119,242,.35);"
+              onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform='translateY(0)'">
+              <svg width="24" height="24" fill="white" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </div>
+            <span style="font-size:12px;font-weight:600;">View More</span>
+          </a>
+          <!-- Instagram -->
+          <a href="https://www.instagram.com/suburban_liquors" target="_blank" rel="noopener"
+            style="display:flex;flex-direction:column;align-items:center;gap:8px;text-decoration:none;color:rgba(242,237,227,.6);transition:color 0.15s;"
+            onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(242,237,227,.6)'">
+            <div style="width:48px;height:48px;border-radius:12px;background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);display:flex;align-items:center;justify-content:center;transition:transform 0.15s;box-shadow:0 4px 14px rgba(220,39,67,.35);"
+              onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform='translateY(0)'">
+              <svg width="22" height="22" fill="white" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </div>
+            <span style="font-size:12px;font-weight:600;">View More</span>
+          </a>
+        </div>
+      </div>
+      <div style="border-top:1px solid rgba(242,237,227,.1);padding-top:24px;text-align:center;color:rgba(242,237,227,.35);font-size:13px;">
+        © 2024 Suburban Liquors · All Rights Reserved · Must be 21+ to purchase alcohol
+      </div>
+    </div>
+  </footer>
+</div>
+
+<!-- ══════════════════════════════════════
+     SHOP
+══════════════════════════════════════ -->
+<div id="pg-shop" class="page" style="display:none;background:#F5F1E8;">
+  <div style="background:linear-gradient(135deg,#163A20 0%,#2A5E38 50%,#3A7A4A 100%);padding:48px 24px;text-align:center;">
+    <h1 class="font-display" style="color:var(--cream);font-size:clamp(40px,6vw,70px);letter-spacing:.02em;">SHOP ALL PRODUCTS</h1>
+    <p style="color:rgba(242,237,227,.65);margin-top:8px;">Browse our full inventory</p>
+  </div>
+
+  <div style="max-width:1280px;margin:0 auto;padding:48px 24px;">
+    <div style="display:grid;grid-template-columns:260px 1fr;gap:32px;align-items:start;" class="shop-layout">
+
+      <!-- Sidebar -->
+      <aside style="background:white;border-radius:18px;padding:28px;box-shadow:0 4px 16px rgba(42,54,32,.08);position:sticky;top:80px;">
+        <div class="font-display" style="font-size:26px;color:var(--olive-deep);margin-bottom:24px;letter-spacing:.04em;">FILTERS</div>
+
+        <!-- Category -->
+        <div style="margin-bottom:24px;">
+          <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--olive);margin-bottom:10px;">Category</div>
+          <div style="display:flex;flex-wrap:wrap;gap:7px;" id="cat-chips">
+            <span class="chip on"  onclick="setCat('all',this)">All</span>
+            <span class="chip"     onclick="setCat('beer',this)">Beer</span>
+            <span class="chip"     onclick="setCat('wine',this)">Wine</span>
+            <span class="chip"     onclick="setCat('whiskey',this)">Whiskey</span>
+            <span class="chip"     onclick="setCat('vodka',this)">Vodka</span>
+            <span class="chip"     onclick="setCat('cocktail',this)">Cocktails</span>
+            <span class="chip"     onclick="setCat('thc',this)">THC Beverages</span>
+          </div>
+        </div>
+
+        <!-- Price -->
+        <div style="margin-bottom:24px;">
+          <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--olive);margin-bottom:10px;">
+            Max Price: <span id="price-lbl" style="color:var(--olive-deep);">$100</span>
+          </div>
+          <input type="range" min="10" max="100" value="100" oninput="setPrice(this.value)">
+        </div>
+
+        <!-- Dietary -->
+        <div style="margin-bottom:24px;">
+          <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--olive);margin-bottom:10px;">Dietary</div>
+          <div style="display:flex;flex-direction:column;gap:10px;">
+            <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:14px;">
+              <input type="checkbox" onchange="toggleTag('sugar-free',this)" style="accent-color:var(--olive);width:15px;height:15px;">
+              Sugar-Free <span class="tag t-sf" style="margin-left:auto;">SF</span>
+            </label>
+            <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:14px;">
+              <input type="checkbox" onchange="toggleTag('gluten-free',this)" style="accent-color:var(--olive);width:15px;height:15px;">
+              Gluten-Free <span class="tag t-gf" style="margin-left:auto;">GF</span>
+            </label>
+            <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:14px;">
+              <input type="checkbox" onchange="toggleTag('low-carb',this)" style="accent-color:var(--olive);width:15px;height:15px;">
+              Low-Carb <span class="tag t-lc" style="margin-left:auto;">LC</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Sort -->
+        <div>
+          <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--olive);margin-bottom:10px;">Sort By</div>
+          <select onchange="setSort(this.value)" style="width:100%;padding:9px 12px;border:1.5px solid #D1CFC8;border-radius:8px;font-size:13px;outline:none;color:#1A1A1A;background:white;">
+            <option value="name">Name (A–Z)</option>
+            <option value="price-asc">Price: Low → High</option>
+            <option value="price-desc">Price: High → Low</option>
+            <option value="pop">Popularity</option>
+          </select>
+        </div>
+
+        <button onclick="resetFilters()" style="margin-top:20px;width:100%;padding:10px;background:var(--sage-mid);border:none;border-radius:8px;font-size:13px;font-weight:600;color:var(--olive-dark);cursor:pointer;transition:background 0.15s;" onmouseover="this.style.background='#BECFAE'" onmouseout="this.style.background='var(--sage-mid)'">
+          Reset Filters
+        </button>
+      </aside>
+
+      <!-- Grid -->
+      <main>
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;">
+          <p style="color:var(--olive);font-size:14px;"><span id="prod-count">20</span> products found</p>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;" id="product-grid" class="prod-grid"></div>
+        <div id="no-results" style="display:none;text-align:center;padding:80px 0;">
+          <div style="font-size:56px;margin-bottom:12px;">🍾</div>
+          <div class="font-display" style="font-size:28px;color:var(--olive);">No products match your filters</div>
+          <button class="btn-gold" onclick="resetFilters()" style="margin-top:20px;">Clear Filters</button>
+        </div>
+      </main>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     DEALS
+══════════════════════════════════════ -->
+<div id="pg-deals" class="page" style="display:none;">
+  <div style="background:linear-gradient(135deg,#1E2E14 0%,#2C4A1E 45%,#3A5E28 100%);padding:64px 24px;text-align:center;">
+    <h1 class="font-display" style="color:var(--cream);font-size:clamp(40px,6vw,72px);">OUR <span style="color:var(--gold);">DEALS</span></h1>
+    <p style="color:rgba(242,237,227,.65);margin-top:8px;">Real savings on wine — every day of the week</p>
+  </div>
+
+  <!-- Wine Wednesday section — light sage green -->
+  <div style="background:var(--cream);padding:64px 24px;">
+    <div style="max-width:1280px;margin:0 auto;">
+      <!-- Wine Wednesday -->
+      <h2 class="font-display" style="font-size:38px;color:var(--olive-deep);margin-bottom:8px;">WINE WEDNESDAY</h2>
+      <p style="color:var(--olive);font-size:15px;margin-bottom:28px;">Every Wednesday · Mix &amp; match any wines (excludes sparkling &amp; half gallons)</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:64px;" class="bundles-grid">
+        <div style="background:linear-gradient(135deg,#5A2A3A,#8B3A5A);border-radius:18px;padding:40px;position:relative;overflow:hidden;">
+          <div style="position:absolute;top:16px;right:16px;background:var(--gold);color:#1E2E14;font-size:11px;font-weight:800;padding:4px 12px;border-radius:99px;text-transform:uppercase;">Wednesdays Only</div>
+          <div style="font-size:56px;margin-bottom:16px;">🍷</div>
+          <h3 class="font-display" style="color:var(--cream);font-size:36px;margin-bottom:8px;">Buy 3 Wines</h3>
+          <div style="font-size:52px;font-weight:800;color:var(--gold);line-height:1;margin-bottom:12px;">10% OFF</div>
+          <p style="color:rgba(242,237,227,.65);font-size:14px;">Mix &amp; match any 3 bottles of wine</p>
+        </div>
+        <div style="background:linear-gradient(135deg,#3A1A4A,#6B2A8B);border-radius:18px;padding:40px;position:relative;overflow:hidden;">
+          <div style="position:absolute;top:16px;right:16px;background:var(--gold);color:#1E2E14;font-size:11px;font-weight:800;padding:4px 12px;border-radius:99px;text-transform:uppercase;">Wednesdays Only</div>
+          <div style="font-size:56px;margin-bottom:16px;">🍷🍷</div>
+          <h3 class="font-display" style="color:var(--cream);font-size:36px;margin-bottom:8px;">Buy 6+ Wines</h3>
+          <div style="font-size:52px;font-weight:800;color:var(--gold);line-height:1;margin-bottom:12px;">15% OFF</div>
+          <p style="color:rgba(242,237,227,.65);font-size:14px;">Mix &amp; match any 6 or more bottles of wine</p>
+        </div>
+      </div>
+      <div style="background:rgba(200,164,60,.1);border:1px solid rgba(200,164,60,.25);border-radius:12px;padding:16px 24px;display:flex;align-items:center;gap:12px;">
+        <span style="font-size:20px;">⚠️</span>
+        <p style="color:rgba(242,237,227,.7);font-size:14px;margin:0;"><strong style="color:var(--gold);">Wine Wednesday excludes:</strong> Sparkling &amp; bubbly wines, and half gallon bottles.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Everyday Wine Deal section — slightly deeper green -->
+  <div style="background:#DDEACC;padding:64px 24px;">
+    <div style="max-width:1280px;margin:0 auto;">
+      <!-- Everyday Wine Deal -->
+      <h2 class="font-display" style="font-size:38px;color:var(--olive-deep);margin-bottom:8px;">EVERYDAY WINE DEAL</h2>
+      <p style="color:var(--olive);font-size:15px;margin-bottom:28px;">Monday – Sunday · Any day of the week · All wines eligible</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:64px;" class="bundles-grid">
+        <div style="background:linear-gradient(135deg,#1E2E14,#3A4E2A);border-radius:18px;padding:40px;">
+          <div style="font-size:56px;margin-bottom:16px;">🍷</div>
+          <h3 class="font-display" style="color:var(--cream);font-size:36px;margin-bottom:8px;">Buy 6 Wines</h3>
+          <div style="font-size:52px;font-weight:800;color:var(--gold);line-height:1;margin-bottom:12px;">10% OFF</div>
+          <p style="color:rgba(242,237,227,.65);font-size:14px;">Pick any 6 bottles of wine, any day</p>
+        </div>
+        <div style="background:linear-gradient(135deg,#2A3A1A,#4A5E2A);border-radius:18px;padding:40px;">
+          <div style="font-size:56px;margin-bottom:16px;">🍷🍷</div>
+          <h3 class="font-display" style="color:var(--cream);font-size:36px;margin-bottom:8px;">Buy 12 Wines</h3>
+          <div style="font-size:52px;font-weight:800;color:var(--gold);line-height:1;margin-bottom:12px;">15% OFF</div>
+          <p style="color:rgba(242,237,227,.65);font-size:14px;">Pick any 12 bottles of wine, any day</p>
+        </div>
+      </div>
+
+      <h2 class="font-display" style="font-size:38px;color:var(--olive-deep);margin-bottom:28px;">TOP PICKS</h2>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;" id="top-picks" class="prod-grid"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     ABOUT
+══════════════════════════════════════ -->
+<div id="pg-about" class="page" style="display:none;background:var(--cream);">
+  <div style="background:linear-gradient(135deg,#1E2E14 0%,#2C4A1E 45%,#3A5E28 100%);padding:64px 24px;text-align:center;">
+    <h1 class="font-display" style="color:var(--cream);font-size:clamp(40px,6vw,72px);">OUR <span style="color:var(--gold);">STORY</span></h1>
+    <p style="color:rgba(242,237,227,.65);margin-top:8px;">A local business committed to the Newark community</p>
+  </div>
+
+  <div style="max-width:1200px;margin:0 auto;padding:72px 24px;">
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;margin-bottom:80px;" class="about-grid">
+      <img src="images/store.png" alt="Better Selection, Better Service"
+        loading="lazy"
+        style="width:100%;border-radius:20px;box-shadow:0 16px 48px rgba(42,54,32,.2);">
+      <div>
+        <span style="color:var(--gold);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;display:block;margin-bottom:14px;">Under New Ownership</span>
+        <h2 class="font-display" style="font-size:clamp(32px,4vw,52px);color:var(--olive-deep);margin-bottom:24px;line-height:1.05;">BETTER SELECTION.<br>BETTER SERVICE.</h2>
+        <p style="font-size:15px;line-height:1.8;color:#4A4A4A;margin-bottom:16px;">Suburban Liquors has been a cornerstone of the Newark, Delaware community for years. Under new ownership, we're bringing renewed energy, an expanded selection, and a commitment to outstanding customer service.</p>
+        <p style="font-size:15px;line-height:1.8;color:#4A4A4A;margin-bottom:16px;">We believe choosing the right drink should be an enjoyable experience — not an overwhelming one. Our knowledgeable staff is always here to help you find the perfect bottle for any occasion.</p>
+        <p style="font-size:15px;line-height:1.8;color:#4A4A4A;">Whether you're a craft beer enthusiast, a wine connoisseur, or you just need a reliable spirit for the weekend — we've got you covered.</p>
+      </div>
+    </div>
+
+    <!-- Values -->
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:80px;" class="vals-grid">
+      <div style="background:linear-gradient(135deg,#FEF9E7,#FDF5D0);border-radius:18px;padding:36px;text-align:center;box-shadow:0 4px 20px rgba(200,164,60,.18);border:1px solid rgba(200,164,60,.2);">
+        <div style="font-size:44px;margin-bottom:14px;">🏆</div>
+        <div class="font-display" style="font-size:22px;color:var(--olive-deep);margin-bottom:10px;">CURATED SELECTION</div>
+        <p style="font-size:14px;line-height:1.7;color:var(--olive);">Hundreds of craft beers, wines, and spirits — hand-picked for quality and value.</p>
+      </div>
+      <div style="background:linear-gradient(135deg,#E8F5EC,#D5EFDC);border-radius:18px;padding:36px;text-align:center;box-shadow:0 4px 20px rgba(42,54,32,.12);border:1px solid rgba(42,90,40,.2);">
+        <div style="font-size:44px;margin-bottom:14px;">💰</div>
+        <div class="font-display" style="font-size:22px;color:var(--olive-deep);margin-bottom:10px;">EVERYDAY LOW PRICES</div>
+        <p style="font-size:14px;line-height:1.7;color:var(--olive);">Competitive pricing with weekly deals and bundle offers to help you save more.</p>
+      </div>
+      <div style="background:linear-gradient(135deg,#FEF0E5,#FDE3D0);border-radius:18px;padding:36px;text-align:center;box-shadow:0 4px 20px rgba(180,90,30,.14);border:1px solid rgba(180,90,30,.18);">
+        <div style="font-size:44px;margin-bottom:14px;">🤝</div>
+        <div class="font-display" style="font-size:22px;color:var(--olive-deep);margin-bottom:10px;">COMMUNITY ROOTS</div>
+        <p style="font-size:14px;line-height:1.7;color:var(--olive);">Proud to serve Newark and support local events, causes, and neighbors.</p>
+      </div>
+    </div>
+
+    <!-- CTA card with mascot -->
+    <div style="background:linear-gradient(135deg,#1E2E14,#3A4E2A);border-radius:24px;overflow:hidden;">
+      <div style="display:grid;grid-template-columns:1fr auto;align-items:center;" class="cta-grid">
+        <div style="padding:48px;">
+          <h2 class="font-display" style="color:var(--cream);font-size:42px;margin-bottom:14px;">COME VISIT US</h2>
+          <p style="color:rgba(242,237,227,.8);font-size:15px;line-height:1.75;margin-bottom:20px;">Stop by Suburban Liquors at 204 Suburban Plaza in Newark, Delaware. Open 7 days a week with extended hours for your convenience.</p>
+          <p style="color:rgba(242,237,227,.65);font-size:14px;margin-bottom:8px;">📍 204 Suburban Plaza, Newark, DE 19711</p>
+          <p style="color:rgba(242,237,227,.65);font-size:14px;margin-bottom:28px;">🕐 Mon–Sat 9AM–11PM &nbsp;|&nbsp; Sun 10AM–8PM</p>
+          <button class="btn-gold" onclick="go('store')">GET DIRECTIONS</button>
+        </div>
+        <div style="padding:40px;">
+          <img src="images/logo.png" alt="Suburban Liquors Logo"
+            loading="lazy"
+            style="width:180px;height:180px;object-fit:contain;filter:drop-shadow(0 8px 24px rgba(0,0,0,.35));border-radius:50%;">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     STORE INFO
+══════════════════════════════════════ -->
+<div id="pg-store" class="page" style="display:none;background:var(--sage);">
+  <div style="background:linear-gradient(135deg,#1E2E14 0%,#2C4A1E 45%,#3A5E28 100%);padding:64px 24px;text-align:center;">
+    <h1 class="font-display" style="color:var(--cream);font-size:clamp(40px,6vw,72px);">STORE <span style="color:var(--gold);">INFO</span></h1>
+    <p style="color:rgba(242,237,227,.65);margin-top:8px;">Find us in Newark, Delaware</p>
+  </div>
+
+  <div style="max-width:1200px;margin:0 auto;padding:64px 24px;">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;margin-bottom:48px;" class="store-grid">
+
+      <img src="images/hours.png" alt="Store Hours"
+        loading="lazy"
+        style="width:100%;border-radius:20px;box-shadow:0 16px 48px rgba(42,54,32,.2);">
+
+      <div style="display:flex;flex-direction:column;gap:18px;">
+        <div style="background:linear-gradient(135deg,#E8EFF8,#DCE8F5);border-radius:16px;padding:24px;box-shadow:0 4px 16px rgba(18,32,72,.12);display:flex;gap:16px;align-items:flex-start;border-left:4px solid #4A6AC8;">
+          <span style="font-size:28px;">📍</span>
+          <div>
+            <div class="font-display" style="font-size:22px;color:#0E1A4A;margin-bottom:6px;">ADDRESS</div>
+            <p style="font-weight:600;font-size:15px;">204 Suburban Plaza</p>
+            <p style="color:#2A4A8A;font-size:14px;">Newark, Delaware 19711, USA</p>
+          </div>
+        </div>
+
+        <div style="background:linear-gradient(135deg,#E5F0EC,#D5E8E0);border-radius:16px;padding:24px;box-shadow:0 4px 16px rgba(18,72,42,.12);display:flex;gap:16px;align-items:flex-start;border-left:4px solid #2A7A50;">
+          <span style="font-size:28px;">🕐</span>
+          <div style="flex:1;">
+            <div class="font-display" style="font-size:22px;color:#0A2818;margin-bottom:12px;">STORE HOURS</div>
+            <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(42,122,80,.2);">
+              <span style="font-weight:600;font-size:14px;">Monday – Saturday</span>
+              <span style="color:#2A7A50;font-size:14px;">9:00 AM – 11:00 PM</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;padding:8px 0;">
+              <span style="font-weight:600;font-size:14px;">Sunday</span>
+              <span style="color:#2A7A50;font-size:14px;">10:00 AM – 8:00 PM</span>
+            </div>
+          </div>
+        </div>
+
+        <div style="background:linear-gradient(135deg,#FEF5E0,#FDE8C0);border-radius:16px;padding:24px;box-shadow:0 4px 16px rgba(180,120,0,.14);display:flex;gap:16px;align-items:flex-start;border-left:4px solid #C8A43C;">
+          <span style="font-size:28px;">📞</span>
+          <div>
+            <div class="font-display" style="font-size:22px;color:#3A2A00;margin-bottom:6px;">CONTACT</div>
+            <a href="tel:+13022867049" style="display:block;font-size:18px;font-weight:700;color:#3A2A00;text-decoration:none;margin-bottom:4px;">+1 (302) 286-7049</a>
+            <a href="mailto:suburbanliq@gmail.com" style="display:block;font-size:14px;color:#7A5A10;text-decoration:none;margin-bottom:16px;">suburbanliq@gmail.com</a>
+            <button class="btn-gold" onclick="go('contact')" style="font-size:15px;padding:10px 22px;">GET IN TOUCH</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Map -->
+    <div style="border-radius:20px;overflow:hidden;box-shadow:0 8px 32px rgba(42,54,32,.12);">
+      <iframe
+        src="https://maps.google.com/maps?q=204+Suburban+Plaza,+Newark,+DE+19711&output=embed&z=15"
+        width="100%" height="420" style="border:0;display:block;"
+        allowfullscreen="" loading="lazy" title="Suburban Liquors Location">
+      </iframe>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     CONTACT
+══════════════════════════════════════ -->
+<div id="pg-contact" class="page" style="display:none;background:var(--sage);">
+  <div style="background:linear-gradient(135deg,#1E2E14 0%,#2C4A1E 45%,#3A5E28 100%);padding:64px 24px;text-align:center;">
+    <h1 class="font-display" style="color:var(--cream);font-size:clamp(40px,6vw,72px);">CONTACT <span style="color:var(--gold);">US</span></h1>
+    <p style="color:rgba(242,237,227,.65);margin-top:8px;">We'd love to hear from you</p>
+  </div>
+
+  <div style="max-width:1100px;margin:0 auto;padding:64px 24px;">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;" class="contact-grid">
+
+      <!-- Form -->
+      <div style="background:white;border-radius:20px;padding:40px;box-shadow:0 4px 16px rgba(42,54,32,.08);">
+        <div class="font-display" style="font-size:30px;color:var(--olive-deep);margin-bottom:28px;">SEND A MESSAGE</div>
+        <form onsubmit="submitForm(event)" style="display:flex;flex-direction:column;gap:16px;">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+            <div>
+              <label style="font-size:13px;font-weight:600;display:block;margin-bottom:5px;color:#4A4A4A;">First Name</label>
+              <input type="text" placeholder="John" class="form-input">
+            </div>
+            <div>
+              <label style="font-size:13px;font-weight:600;display:block;margin-bottom:5px;color:#4A4A4A;">Last Name</label>
+              <input type="text" placeholder="Doe" class="form-input">
+            </div>
+          </div>
+          <div>
+            <label style="font-size:13px;font-weight:600;display:block;margin-bottom:5px;color:#4A4A4A;">Email</label>
+            <input type="email" placeholder="john@example.com" class="form-input">
+          </div>
+          <div>
+            <label style="font-size:13px;font-weight:600;display:block;margin-bottom:5px;color:#4A4A4A;">Phone (optional)</label>
+            <input type="tel" placeholder="(302) 555-0000" class="form-input">
+          </div>
+          <div>
+            <label style="font-size:13px;font-weight:600;display:block;margin-bottom:5px;color:#4A4A4A;">Message</label>
+            <textarea rows="5" placeholder="Ask about products, hours, special orders…" class="form-input" style="resize:none;"></textarea>
+          </div>
+          <button type="submit" class="btn-gold" style="width:100%;text-align:center;font-size:20px;padding:14px;">SEND MESSAGE</button>
+        </form>
+      </div>
+
+      <!-- Info -->
+      <div style="display:flex;flex-direction:column;gap:24px;">
+        <div>
+          <div class="font-display" style="font-size:30px;color:var(--olive-deep);margin-bottom:14px;">GET IN TOUCH</div>
+          <p style="font-size:15px;line-height:1.8;color:#4A4A4A;">Have a question about our inventory, need help finding the perfect gift, or want to know about our latest deals? We're here to help.</p>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <div style="background:linear-gradient(135deg,#FEF0EE,#FADBD8);padding:18px 20px;border-radius:14px;display:flex;align-items:center;gap:14px;box-shadow:0 2px 8px rgba(140,30,30,.1);border-left:3px solid #C8444A;">
+            <span style="font-size:24px;">📍</span>
+            <div><div style="font-weight:600;font-size:14px;color:#4A1010;">Location</div><div style="color:#8A3030;font-size:13px;">204 Suburban Plaza, Newark, DE 19711</div></div>
+          </div>
+          <div style="background:linear-gradient(135deg,#E8F4F0,#D5EDE8);padding:18px 20px;border-radius:14px;display:flex;align-items:center;gap:14px;box-shadow:0 2px 8px rgba(30,100,70,.1);border-left:3px solid #2A8A60;">
+            <span style="font-size:24px;">📞</span>
+            <div><div style="font-weight:600;font-size:14px;color:#0A3020;">Phone</div><a href="tel:+13022867049" style="color:#2A6A48;font-size:13px;text-decoration:none;">+1 (302) 286-7049</a></div>
+          </div>
+          <div style="background:linear-gradient(135deg,#FEF8E8,#FDF0CC);padding:18px 20px;border-radius:14px;display:flex;align-items:center;gap:14px;box-shadow:0 2px 8px rgba(160,120,0,.1);border-left:3px solid #C8A43C;">
+            <span style="font-size:24px;">✉️</span>
+            <div><div style="font-weight:600;font-size:14px;color:#3A2800;">Email</div><a href="mailto:suburbanliq@gmail.com" style="color:#7A5A10;font-size:13px;text-decoration:none;">suburbanliq@gmail.com</a></div>
+          </div>
+          <div style="background:linear-gradient(135deg,#EEF0FA,#DEE2F5);padding:18px 20px;border-radius:14px;display:flex;align-items:center;gap:14px;box-shadow:0 2px 8px rgba(40,50,160,.1);border-left:3px solid #4A5AC8;">
+            <span style="font-size:24px;">🕐</span>
+            <div><div style="font-weight:600;font-size:14px;color:#0A1040;">Hours</div><div style="color:#3A4A9A;font-size:13px;">Mon–Sat 9AM–11PM &nbsp;|&nbsp; Sun 10AM–8PM</div></div>
+          </div>
+        </div>
+
+        <div>
+          <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--olive);margin-bottom:12px;">Follow Us</div>
+          <div style="display:flex;gap:10px;">
+            <a href="https://www.facebook.com/suburban_liquors" target="_blank" rel="noopener" style="width:42px;height:42px;border-radius:50%;background:#1877f2;display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:16px;transition:transform 0.15s;" onmouseover="this.style.transform='scale(1.12)'" onmouseout="this.style.transform='scale(1)'">f</a>
+            <a href="https://www.instagram.com/suburban_liquors" target="_blank" rel="noopener" style="width:42px;height:42px;border-radius:50%;background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);display:flex;align-items:center;justify-content:center;color:white;transition:transform 0.15s;" onmouseover="this.style.transform='scale(1.12)'" onmouseout="this.style.transform='scale(1)'">
+              <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <img src="images/logo.png" alt="Suburban Liquors Logo"
+          loading="lazy"
+          style="width:100px;height:100px;object-fit:contain;margin-top:8px;border-radius:50%;filter:drop-shadow(0 4px 14px rgba(0,0,0,.15));">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     AI ASSISTANT
+══════════════════════════════════════ -->
+<div id="pg-ai" class="page" style="display:none;background:var(--sage);">
+  <div style="background:linear-gradient(135deg,#1E2E14 0%,#2C4A1E 45%,#3A5E28 100%);padding:64px 24px;text-align:center;">
+    <div style="display:inline-flex;align-items:center;gap:10px;background:rgba(200,164,60,.15);border:1px solid rgba(200,164,60,.35);color:var(--gold);border-radius:99px;padding:6px 16px;font-size:13px;font-weight:600;margin-bottom:20px;">
+      🤖 Coming Soon — AI-Powered
+    </div>
+    <h1 class="font-display" style="color:var(--cream);font-size:clamp(40px,6vw,72px);">AI <span style="color:var(--gold);">ASSISTANT</span></h1>
+    <p style="color:rgba(242,237,227,.65);margin-top:8px;">Ask anything about our drinks, recommendations, and more</p>
+  </div>
+
+  <div style="max-width:780px;margin:0 auto;padding:48px 24px 80px;">
+
+    <!-- Example prompts -->
+    <div style="margin-bottom:24px;">
+      <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--olive);margin-bottom:12px;">Try asking:</div>
+      <div style="display:flex;flex-wrap:wrap;gap:10px;" id="prompt-chips">
+        <button class="chip" onclick="fillPrompt('Find sugar-free drinks under $20')">Find sugar-free drinks under $20</button>
+        <button class="chip" onclick="fillPrompt('Best whiskey under $40')">Best whiskey under $40</button>
+        <button class="chip" onclick="fillPrompt('What wines do you have?')">What wines do you have?</button>
+        <button class="chip" onclick="fillPrompt('Gluten-free beer options')">Gluten-free beer options</button>
+        <button class="chip" onclick="fillPrompt('What are your store hours?')">What are your store hours?</button>
+        <button class="chip" onclick="fillPrompt('Low-carb drinks')">Low-carb drinks</button>
+      </div>
+    </div>
+
+    <!-- Chat window -->
+    <div style="background:white;border-radius:20px;overflow:hidden;box-shadow:0 8px 32px rgba(42,54,32,.12);">
+
+      <!-- Messages -->
+      <div id="chat-messages" style="height:420px;overflow-y:auto;padding:24px;display:flex;flex-direction:column;gap:16px;">
+        <!-- Welcome message -->
+        <div style="display:flex;gap:12px;align-items:flex-start;">
+          <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#334228,#5A7048);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">🤖</div>
+          <div>
+            <div style="background:var(--sage);border-radius:4px 16px 16px 16px;padding:14px 18px;max-width:480px;">
+              <p style="font-size:14px;line-height:1.7;color:#1A1A1A;">Hey there! 👋 I'm the Suburban Liquors AI Assistant. I can help you find the perfect drink, check what's in stock, or answer questions about our store.</p>
+              <p style="font-size:14px;line-height:1.7;color:#1A1A1A;margin-top:8px;">Try asking me something like <em>"Best bourbon under $35"</em> or <em>"Do you carry gluten-free beer?"</em></p>
+            </div>
+            <div style="font-size:11px;color:#9CA3AF;margin-top:4px;margin-left:4px;">Suburban Liquors AI · just now</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Input bar -->
+      <div style="border-top:1px solid var(--sage-mid);padding:16px 20px;display:flex;gap:12px;align-items:flex-end;background:#F0F4EB;">
+        <textarea id="chat-input" rows="1" placeholder="Ask about drinks, recommendations, hours…"
+          style="flex:1;padding:12px 16px;border:1.5px solid #D1CFC8;border-radius:12px;font-family:'Inter',sans-serif;font-size:14px;outline:none;resize:none;line-height:1.5;max-height:120px;overflow-y:auto;transition:border-color 0.15s;"
+          onfocus="this.style.borderColor='var(--olive)'" onblur="this.style.borderColor='#D1CFC8'"
+          onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();sendChat()}"
+          oninput="autoResize(this)"></textarea>
+        <button onclick="sendChat()" style="background:var(--olive-deep);color:white;border:none;width:44px;height:44px;border-radius:12px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background 0.15s,transform 0.15s;"
+          onmouseover="this.style.background='var(--olive-dark)';this.style.transform='scale(1.05)'"
+          onmouseout="this.style.background='var(--olive-deep)';this.style.transform='scale(1)'">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M22 2L11 13"/><path d="M22 2L15 22 11 13 2 9l20-7z"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <p style="text-align:center;font-size:12px;color:#9CA3AF;margin-top:16px;">
+      This is a demo AI assistant. Responses are generated from our product catalog. Real AI integration coming soon.
+    </p>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     PRODUCT MODAL
+══════════════════════════════════════ -->
+<div id="modal-overlay" class="overlay" style="display:none;" onclick="closeModal(event)">
+  <div class="modal-box" id="modal-box" onclick="event.stopPropagation()"></div>
+</div>
+
+<!-- ══════════════════════════════════════
+     AGE VERIFICATION GATE
+══════════════════════════════════════ -->
+<div id="age-gate" style="position:fixed;inset:0;z-index:500;display:flex;align-items:center;justify-content:center;padding:20px;background:rgba(18,28,10,0.96);backdrop-filter:blur(6px);">
+  <div style="background:#1E2E14;border-radius:24px;padding:48px 40px;max-width:440px;width:100%;text-align:center;border:1px solid rgba(200,164,60,.2);box-shadow:0 32px 80px rgba(0,0,0,.6);">
+    <img src="images/logo.png" alt="Suburban Liquors" loading="lazy" style="width:90px;height:90px;object-fit:contain;border-radius:50%;margin-bottom:24px;">
+    <h2 class="font-display" style="color:var(--cream);font-size:36px;letter-spacing:.04em;margin-bottom:8px;">WELCOME TO<br>SUBURBAN LIQUORS</h2>
+    <p style="color:rgba(242,237,227,.55);font-size:14px;line-height:1.7;margin-bottom:32px;">You must be 21 years of age or older to enter this website. Please verify your age to continue.</p>
+    <div style="display:flex;flex-direction:column;gap:12px;">
+      <button onclick="passAgeGate()" style="background:var(--gold);color:#1E2E14;border:none;border-radius:12px;padding:15px;font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:.06em;cursor:pointer;transition:background 0.15s,transform 0.15s;" onmouseover="this.style.background='#A88528';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='var(--gold)';this.style.transform='translateY(0)'">
+        YES, I AM 21 OR OLDER
+      </button>
+      <button onclick="denyAgeGate()" style="background:transparent;color:rgba(242,237,227,.45);border:1px solid rgba(242,237,227,.15);border-radius:12px;padding:12px;font-size:14px;cursor:pointer;transition:color 0.15s,border-color 0.15s;" onmouseover="this.style.color='rgba(242,237,227,.7)';this.style.borderColor='rgba(242,237,227,.3)'" onmouseout="this.style.color='rgba(242,237,227,.45)';this.style.borderColor='rgba(242,237,227,.15)'">
+        No, I am under 21
+      </button>
+    </div>
+    <p style="color:rgba(242,237,227,.25);font-size:11px;margin-top:20px;line-height:1.6;">By entering this site you agree to our terms and conditions. This site uses cookies to improve your experience.</p>
+  </div>
+</div>
+
+<!-- UNDER-21 REDIRECT MESSAGE -->
+<div id="under21-msg" style="position:fixed;inset:0;z-index:500;display:none;align-items:center;justify-content:center;background:#1E2E14;">
+  <div style="text-align:center;padding:40px;">
+    <div style="font-size:56px;margin-bottom:20px;">🚫</div>
+    <h2 class="font-display" style="color:var(--cream);font-size:40px;margin-bottom:12px;">SORRY</h2>
+    <p style="color:rgba(242,237,227,.6);font-size:16px;">You must be 21 or older to access this website.</p>
+  </div>
+</div>
+
+<!-- FLOATING CALL BUTTON (mobile) -->
+<a href="tel:+13022867049" id="float-call"
+  style="position:fixed;bottom:24px;left:24px;z-index:200;display:none;align-items:center;gap:10px;background:#1E2E14;color:var(--gold);border:1.5px solid rgba(200,164,60,.4);border-radius:99px;padding:12px 20px;text-decoration:none;font-weight:700;font-size:14px;box-shadow:0 6px 20px rgba(0,0,0,.3);transition:transform 0.15s,background 0.15s;" onmouseover="this.style.background='#334228';this.style.transform='scale(1.04)'" onmouseout="this.style.background='#1E2E14';this.style.transform='scale(1)'">
+  <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+  Call Us
+</a>
+
+<!-- BACK TO TOP -->
+<button id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top"
+  style="position:fixed;bottom:24px;right:24px;z-index:200;display:none;width:44px;height:44px;border-radius:50%;background:#1E2E14;border:1.5px solid rgba(200,164,60,.35);color:var(--gold);cursor:pointer;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,.25);transition:transform 0.15s,background 0.15s;" onmouseover="this.style.background='#334228';this.style.transform='scale(1.1)'" onmouseout="this.style.background='#1E2E14';this.style.transform='scale(1)'">
+  <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 15l-6-6-6 6"/></svg>
+</button>
+
+<!-- TOAST -->
+<div id="toast" style="position:fixed;bottom:24px;right:24px;z-index:400;display:none;">
+  <div id="toast-msg" style="background:#1E2E14;color:var(--cream);padding:12px 20px;border-radius:12px;font-size:14px;font-weight:500;box-shadow:0 8px 24px rgba(0,0,0,.25);"></div>
+</div>
+
+<!-- ══════════════════════════════════════
+     RESPONSIVE
+══════════════════════════════════════ -->
+<style>
+@media (max-width: 900px) {
+  .desk-nav { display: none !important; }
+  #hamburger { display: block !important; }
+  .cat-grid  { grid-template-columns: repeat(2,1fr) !important; }
+  .prod-grid { grid-template-columns: repeat(2,1fr) !important; }
+  .shop-layout { grid-template-columns: 1fr !important; }
+  .shop-layout aside { position: static !important; }
+  .deals-grid { grid-template-columns: repeat(2,1fr) !important; }
+  .bundles-grid { grid-template-columns: 1fr !important; }
+  .about-grid, .store-grid, .contact-grid { grid-template-columns: 1fr !important; }
+  .cta-grid { grid-template-columns: 1fr !important; }
+  .vals-grid { grid-template-columns: 1fr !important; }
+  .foot-grid { grid-template-columns: 1fr !important; }
+  .deals-strip { grid-template-columns: 1fr !important; }
+}
+@media (max-width: 600px) {
+  .cat-grid  { grid-template-columns: repeat(2,1fr) !important; }
+  .prod-grid { grid-template-columns: repeat(2,1fr) !important; }
+  .deals-grid { grid-template-columns: 1fr !important; }
+  #modal-box { border-radius: 14px; }
+}
+</style>
+
+<!-- ══════════════════════════════════════
+     JAVASCRIPT
+══════════════════════════════════════ -->
+<script>
+// ── DATA ──────────────────────────────
+const PRODUCTS = [
+  {id:1,  name:"Blue Moon",             cat:"beer",    price:5.59,  size:"4-pack 16oz",  tags:[],                          inStock:true,  pop:true,  emoji:"🍺"},
+  {id:2,  name:"Heineken",              cat:"beer",    price:5.99,  size:"4-pack 16oz",  tags:[],                          inStock:true,  pop:true,  emoji:"🍺"},
+  {id:3,  name:"White Claw Variety",    cat:"cocktail",          price:15.99, size:"12-pack 12oz", tags:["sugar-free","gluten-free","low-carb"], inStock:true, pop:true, emoji:"🍹"},
+  {id:4,  name:"Corona Extra",          cat:"beer",    price:10.99, size:"6-pack 12oz",  tags:[],                          inStock:true,  pop:false, emoji:"🍺"},
+  {id:5,  name:"Amigos 50mg THC",       cat:"thc",     price:7.99,  size:"single can",   tags:[],                          inStock:true,  pop:true,  emoji:"🌿"},
+  {id:51, name:"Amigos 50mg THC",       cat:"thc",     price:26.99, size:"4-pack",        tags:[],                          inStock:true,  pop:true,  emoji:"🌿"},
+  {id:6,  name:"Sam Adams Boston Lager",cat:"beer",    price:13.49, size:"12-pack 12oz", tags:[],                          inStock:true,  pop:false, emoji:"🍺"},
+  {id:7,  name:"Cabernet Sauvignon",    cat:"wine",    price:18.99, size:"750ml",        tags:["sugar-free"],              inStock:true,  pop:true,  emoji:"🍷"},
+  {id:8,  name:"Chardonnay Reserve",    cat:"wine",    price:16.99, size:"750ml",        tags:[],                          inStock:true,  pop:false, emoji:"🍷"},
+  {id:9,  name:"Rosé Spritz",           cat:"wine",    price:14.99, size:"750ml",        tags:["low-carb"],                inStock:true,  pop:false, emoji:"🍷"},
+  {id:10, name:"Pinot Grigio",          cat:"wine",    price:15.99, size:"750ml",        tags:["sugar-free","low-carb"],   inStock:false, pop:false, emoji:"🍷"},
+  {id:11, name:"Meiomi Pinot Noir",     cat:"wine",    price:21.99, size:"750ml",        tags:[],                          inStock:true,  pop:true,  emoji:"🍷"},
+  {id:12, name:"Jack Daniel's No. 7",   cat:"whiskey", price:28.99, size:"750ml",        tags:[],                          inStock:true,  pop:true,  emoji:"🥃"},
+  {id:13, name:"Bulleit Bourbon",       cat:"whiskey", price:34.99, size:"750ml",        tags:[],                          inStock:true,  pop:false, emoji:"🥃"},
+  {id:14, name:"Jameson Irish Whiskey", cat:"whiskey", price:29.99, size:"750ml",        tags:[],                          inStock:true,  pop:true,  emoji:"🥃"},
+  {id:15, name:"Glenfiddich 12yr",      cat:"whiskey", price:44.99, size:"750ml",        tags:[],                          inStock:true,  pop:false, emoji:"🥃"},
+  {id:16, name:"Maker's Mark",          cat:"whiskey", price:31.99, size:"750ml",        tags:[],                          inStock:true,  pop:false, emoji:"🥃"},
+  {id:17, name:"Tito's Handmade Vodka", cat:"vodka",   price:24.99, size:"750ml",        tags:["gluten-free"],              inStock:true,  pop:true,  emoji:"🍸"},
+  {id:18, name:"Grey Goose",            cat:"vodka",   price:36.99, size:"750ml",        tags:["sugar-free","gluten-free"], inStock:true,  pop:false, emoji:"🍸"},
+  {id:19, name:"Absolut Vodka",         cat:"vodka",   price:22.99, size:"750ml",        tags:[],                          inStock:true,  pop:false, emoji:"🍸"},
+  {id:20, name:"Ketel One",             cat:"vodka",   price:29.99, size:"750ml",        tags:["sugar-free","low-carb"],   inStock:true,  pop:true,  emoji:"🍸"},
+  {id:21, name:"Cycling Frog THC Seltzer", cat:"thc", price:5.99,  size:"12oz can",     tags:["low-carb","sugar-free"],   inStock:true,  pop:true,  emoji:"🍃"},
+  {id:22, name:"Euphoria Mushroom THC Blend", cat:"thc", price:8.99, size:"12oz can",   tags:[],                          inStock:true,  pop:true,  emoji:"🍄"},
+];
+
+const CAT_BG = {
+  beer:    "linear-gradient(135deg,#3A5028,#1E2E14)",
+  wine:    "linear-gradient(135deg,#6B3A4A,#3A1A28)",
+  whiskey: "linear-gradient(135deg,#8B5A2A,#4A2A0A)",
+  vodka:   "linear-gradient(135deg,#2A3A5A,#1A2030)",
+  thc:     "linear-gradient(135deg,#2D4A1E,#4A7A2A)",
+  cocktail:"linear-gradient(135deg,#1A1A1A,#4A4A4A,#D0D0D0)",
+};
+
+const DESCS = {
+  beer:    "A refreshing brew perfect for any occasion. Our selection of craft and imported beers brings the world's best flavors to your glass.",
+  wine:    "Carefully selected and stored at optimal temperature. Pairs beautifully with food or stands magnificently on its own.",
+  whiskey: "A premium spirit with complex notes and a smooth finish. Perfect sipped neat, on the rocks, or in your favorite cocktail.",
+  vodka:   "Crystal-clear and exceptionally smooth. One of our best-selling spirits, great for cocktails or enjoying straight.",
+  cocktail:"Ready-to-drink cocktails and hard seltzers — refreshing, convenient, and perfect for any occasion.",
+  thc:     "Hemp-derived THC beverages including seltzers, tonics, and mushroom blends. Relaxing, legal, and delicious.",
+};
+
+// ── HERO SLIDER ───────────────────────
+(function() {
+  let cur = 0;
+  const total = 2;
+  function heroShow(n) {
+    const track = document.getElementById('hero-track');
+    const dots  = document.querySelectorAll('.slide-dot');
+    dots[cur].style.background = 'rgba(255,255,255,.45)';
+    cur = ((n % total) + total) % total;
+    track.style.transform = 'translateX(-' + (cur * 100) + '%)';
+    dots[cur].style.background = 'var(--gold)';
+  }
+  window.heroSlide = function(dir) { heroShow(cur + dir); };
+  window.heroGoTo  = function(n)   { heroShow(n); };
+  setInterval(function() { heroShow(cur + 1); }, 12000);
+})();
+
+// ── STATE ─────────────────────────────
+let F = { cat: 'all', maxPrice: 100, tags: [], sort: 'name' };
+
+// ── NAVIGATION ────────────────────────
+function go(id) {
+  ['home','shop','deals','about','store','contact','ai'].forEach(p => {
+    const el = document.getElementById('pg-' + p);
+    if (el) el.style.display = 'none';
+  });
+  const pg = document.getElementById('pg-' + id);
+  if (pg) { pg.style.display = 'block'; pg.classList.add('page'); }
+
+  document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+  const nl = document.getElementById('nl-' + id);
+  if (nl) nl.classList.add('active');
+
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+
+  if (id === 'home')  initPopularCarousel(PRODUCTS.filter(p => p.pop));
+  if (id === 'shop')  renderProducts();
+  if (id === 'deals') renderGrid('top-picks', PRODUCTS.filter(p => p.pop).slice(0,4));
+}
+
+function toggleMob() {
+  const m = document.getElementById('mob-menu');
+  const btn = document.getElementById('hamburger');
+  m.classList.toggle('hidden');
+  btn.setAttribute('aria-expanded', !m.classList.contains('hidden'));
+}
+function closeMob() {
+  document.getElementById('mob-menu').classList.add('hidden');
+  document.getElementById('hamburger').setAttribute('aria-expanded', 'false');
+}
+
+// ── PRODUCT CARD HTML ─────────────────
+function makeCard(p) {
+  const tagH = p.tags.map(t => {
+    const cls = t==='sugar-free'?'t-sf':t==='gluten-free'?'t-gf':'t-lc';
+    const lbl = t==='sugar-free'?'Sugar-Free':t==='gluten-free'?'Gluten-Free':'Low-Carb';
+    return `<span class="tag ${cls}">${lbl}</span>`;
+  }).join('');
+  const stock = p.inStock
+    ? '<span class="s-in">In Stock</span>'
+    : '<span class="s-out">Out of Stock</span>';
+  return `
+    <div class="card" style="cursor:pointer;" onclick="openModal(${p.id})">
+      <div style="height:130px;background:${CAT_BG[p.cat]};display:flex;align-items:center;justify-content:center;font-size:44px;position:relative;">
+        ${p.emoji}
+        <div style="position:absolute;top:8px;right:8px;">${stock}</div>
+      </div>
+      <div style="padding:16px;">
+        <div style="font-weight:600;font-size:13px;line-height:1.3;margin-bottom:4px;color:#1A1A1A;">${p.name}</div>
+        <div style="font-size:12px;color:#9CA3AF;margin-bottom:8px;">${p.size}</div>
+        ${tagH ? `<div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:8px;">${tagH}</div>` : ''}
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-top:6px;">
+          <span style="font-size:18px;font-weight:700;color:#1E2E14;">$${p.price.toFixed(2)}</span>
+          <button style="background:#5A7048;color:white;border:none;border-radius:8px;padding:5px 12px;font-size:12px;font-weight:600;cursor:pointer;transition:background 0.15s;"
+            onmouseover="this.style.background='#334228'" onmouseout="this.style.background='#5A7048'"
+            onclick="event.stopPropagation();openModal(${p.id})">View</button>
+        </div>
+      </div>
+    </div>`;
+}
+
+function renderGrid(id, list) {
+  const el = document.getElementById(id);
+  if (el) el.innerHTML = list.map(makeCard).join('');
+}
+
+// ── POPULAR TODAY CAROUSEL ─────────────
+let _popItems = [];
+let _popPage  = 0;
+const POP_PER_PAGE = 6;
+
+function initPopularCarousel(products) {
+  _popItems = products;
+  _popPage  = 0;
+  _buildPopTrack();
+  _updatePopUI();
+}
+
+function _buildPopTrack() {
+  const track = document.getElementById('popular-track');
+  if (!track) return;
+  const numPages = Math.ceil(_popItems.length / POP_PER_PAGE);
+  track.style.width = (numPages * 100) + '%';
+  let html = '';
+  for (let i = 0; i < numPages; i++) {
+    const slice = _popItems.slice(i * POP_PER_PAGE, (i + 1) * POP_PER_PAGE);
+    html += `<div style="width:${100 / numPages}%;flex-shrink:0;">
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px;" class="prod-grid">${slice.map(makeCard).join('')}</div>
+    </div>`;
+  }
+  track.innerHTML = html;
+}
+
+function _updatePopUI() {
+  const numPages = Math.ceil(_popItems.length / POP_PER_PAGE);
+  const track    = document.getElementById('popular-track');
+  if (track) track.style.transform = `translateX(-${(_popPage / numPages) * 100}%)`;
+
+  const dots = document.getElementById('pop-dots');
+  if (dots) {
+    dots.innerHTML = Array.from({length: numPages}, (_, i) =>
+      `<span onclick="popGoTo(${i})" style="display:inline-block;height:8px;width:${i === _popPage ? '24px' : '8px'};border-radius:99px;background:${i === _popPage ? 'var(--gold)' : 'rgba(90,112,72,.3)'};cursor:pointer;transition:all .3s;"></span>`
+    ).join('');
+  }
+
+  const prev = document.getElementById('pop-prev');
+  const next = document.getElementById('pop-next');
+  if (prev) prev.style.opacity = _popPage === 0 ? '.35' : '1';
+  if (next) next.style.opacity = _popPage === numPages - 1 ? '.35' : '1';
+}
+
+function popNav(dir) {
+  const numPages = Math.ceil(_popItems.length / POP_PER_PAGE);
+  _popPage = Math.max(0, Math.min(numPages - 1, _popPage + dir));
+  _updatePopUI();
+}
+
+function popGoTo(page) {
+  _popPage = page;
+  _updatePopUI();
+}
+
+// ── SHOP RENDER ───────────────────────
+function renderProducts() {
+  let list = PRODUCTS.filter(p => {
+    if (F.cat !== 'all' && p.cat !== F.cat) return false;
+    if (p.price > F.maxPrice) return false;
+    if (F.tags.length && !F.tags.every(t => p.tags.includes(t))) return false;
+    return true;
+  });
+  if (F.sort === 'price-asc')  list.sort((a,b) => a.price - b.price);
+  else if (F.sort === 'price-desc') list.sort((a,b) => b.price - a.price);
+  else if (F.sort === 'pop')   list.sort((a,b) => (b.pop?1:0)-(a.pop?1:0));
+  else list.sort((a,b) => a.name.localeCompare(b.name));
+
+  const grid = document.getElementById('product-grid');
+  const none = document.getElementById('no-results');
+  document.getElementById('prod-count').textContent = list.length;
+
+  if (!list.length) {
+    grid.innerHTML = '';
+    none.style.display = 'block';
+  } else {
+    none.style.display = 'none';
+    grid.innerHTML = list.map(makeCard).join('');
+  }
+}
+
+// ── FILTER CONTROLS ───────────────────
+function setCat(cat, btn) {
+  F.cat = cat;
+  document.querySelectorAll('#cat-chips .chip').forEach(c => c.classList.remove('on'));
+  btn.classList.add('on');
+  renderProducts();
+}
+function setPrice(v) {
+  F.maxPrice = +v;
+  document.getElementById('price-lbl').textContent = '$' + v;
+  renderProducts();
+}
+function toggleTag(tag, cb) {
+  if (cb.checked) { if (!F.tags.includes(tag)) F.tags.push(tag); }
+  else F.tags = F.tags.filter(t => t !== tag);
+  renderProducts();
+}
+function setSort(v) { F.sort = v; renderProducts(); }
+function resetFilters() {
+  F = { cat:'all', maxPrice:100, tags:[], sort:'name' };
+  document.querySelectorAll('#cat-chips .chip').forEach((c,i) => c.classList.toggle('on', i===0));
+  document.querySelectorAll('input[type=checkbox]').forEach(cb => cb.checked = false);
+  const r = document.querySelector('input[type=range]');
+  if (r) { r.value = 100; document.getElementById('price-lbl').textContent = '$100'; }
+  document.querySelector('select').value = 'name';
+  renderProducts();
+}
+
+// ── CATEGORY SHORTCUT FROM HOME ───────
+function shopCat(cat) {
+  F.cat = cat;
+  go('shop');
+  setTimeout(() => {
+    const chips = document.querySelectorAll('#cat-chips .chip');
+    chips.forEach(c => c.classList.remove('on'));
+    const map = {all:0,beer:1,wine:2,whiskey:3,vodka:4,cocktail:5,cocktails:5,thc:6};
+    if (chips[map[cat]]) chips[map[cat]].classList.add('on');
+    renderProducts();
+  }, 50);
+}
+
+// ── MODAL ─────────────────────────────
+function openModal(id) {
+  const p = PRODUCTS.find(x => x.id === id);
+  if (!p) return;
+  const sugg = PRODUCTS.filter(x => x.cat === p.cat && x.id !== id).slice(0,3);
+  const tagH = p.tags.map(t => {
+    const cls = t==='sugar-free'?'t-sf':t==='gluten-free'?'t-gf':'t-lc';
+    const lbl = t==='sugar-free'?'Sugar-Free':t==='gluten-free'?'Gluten-Free':'Low-Carb';
+    return `<span class="tag ${cls}" style="font-size:12px;padding:3px 10px;">${lbl}</span>`;
+  }).join('');
+  const stockH = p.inStock
+    ? '<span style="color:#16a34a;font-weight:700;font-size:14px;">✓ In Stock</span>'
+    : '<span style="color:#dc2626;font-weight:700;font-size:14px;">✗ Out of Stock</span>';
+  const suggH = sugg.map(s => `
+    <div onclick="closeModalDirect();setTimeout(()=>openModal(${s.id}),180);"
+      style="cursor:pointer;border-radius:12px;overflow:hidden;text-align:center;transition:transform 0.15s;"
+      onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'">
+      <div style="height:60px;background:${CAT_BG[s.cat]};display:flex;align-items:center;justify-content:center;font-size:28px;">${s.emoji}</div>
+      <div style="padding:8px 4px;">
+        <div style="font-size:11px;font-weight:600;line-height:1.3;">${s.name}</div>
+        <div style="font-size:12px;font-weight:700;color:#1E2E14;">$${s.price.toFixed(2)}</div>
+      </div>
+    </div>`).join('');
+
+  document.getElementById('modal-box').innerHTML = `
+    <div style="height:180px;background:${CAT_BG[p.cat]};border-radius:20px 20px 0 0;display:flex;align-items:center;justify-content:center;font-size:72px;position:relative;">
+      ${p.emoji}
+      <button onclick="closeModalDirect()" style="position:absolute;top:14px;right:14px;background:rgba(0,0,0,.3);border:none;color:white;width:32px;height:32px;border-radius:50%;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:opacity 0.15s;" onmouseover="this.style.opacity='.7'" onmouseout="this.style.opacity='1'">✕</button>
+    </div>
+    <div style="padding:32px;">
+      ${tagH ? `<div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px;">${tagH}</div>` : ''}
+      <div class="font-display" style="font-size:32px;color:#1E2E14;margin-bottom:4px;">${p.name}</div>
+      <div style="font-size:13px;color:#9CA3AF;margin-bottom:18px;">Size: ${p.size} &nbsp;·&nbsp; ${p.cat.charAt(0).toUpperCase()+p.cat.slice(1)}</div>
+      <div style="display:flex;align-items:center;gap:18px;margin-bottom:18px;">
+        <span style="font-size:36px;font-weight:700;color:#1E2E14;">$${p.price.toFixed(2)}</span>
+        ${stockH}
+      </div>
+      <p style="font-size:14px;line-height:1.75;color:#4A4A4A;margin-bottom:24px;">${DESCS[p.cat]}</p>
+      ${sugg.length ? `<div><div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--olive);margin-bottom:12px;">You Might Also Like</div><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;">${suggH}</div></div>` : ''}
+    </div>`;
+  document.getElementById('modal-overlay').style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+}
+function closeModal(e) {
+  if (e.target === document.getElementById('modal-overlay')) closeModalDirect();
+}
+function closeModalDirect() {
+  document.getElementById('modal-overlay').style.display = 'none';
+  document.body.style.overflow = '';
+}
+
+// ── CONTACT FORM ──────────────────────
+function submitForm(e) {
+  e.preventDefault();
+  showToast("Message sent! We'll be in touch soon. 🍺");
+  e.target.reset();
+}
+
+// ── TOAST ─────────────────────────────
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  document.getElementById('toast-msg').textContent = msg;
+  t.style.display = 'block';
+  clearTimeout(t._timer);
+  t._timer = setTimeout(() => t.style.display = 'none', 3500);
+}
+
+// ── AI ASSISTANT ──────────────────────
+const AI_KNOWLEDGE = {
+  hours:   "We're open Monday through Saturday 9AM–11PM, and Sunday 10AM–8PM.",
+  address: "We're at 204 Suburban Plaza, Newark, Delaware 19711.",
+  phone:   "You can reach us at +1 (302) 286-7049.",
+  email:   "Our email is suburbanliq@gmail.com.",
+  owner:   "Suburban Liquors is under new ownership and better than ever!",
+};
+
+function aiRespond(msg) {
+  const q = msg.toLowerCase();
+  // Hours
+  if (/hour|open|close|time|when/i.test(q))
+    return AI_KNOWLEDGE.hours;
+  // Address / location
+  if (/address|where|location|find|direction|map/i.test(q))
+    return AI_KNOWLEDGE.address + " You can also find us on the Store Info page.";
+  // Phone
+  if (/phone|call|number/i.test(q))
+    return AI_KNOWLEDGE.phone;
+  // Email
+  if (/email|mail/i.test(q))
+    return AI_KNOWLEDGE.email;
+
+  // Product queries — filter catalog
+  const catMatch = q.match(/beer|wine|whiskey|bourbon|scotch|vodka|spirit/);
+  const sfMatch  = /sugar.?free|no sugar/.test(q);
+  const gfMatch  = /gluten.?free|no gluten/.test(q);
+  const lcMatch  = /low.?carb|keto/.test(q);
+  const priceMatch = q.match(/under\s*\$?(\d+)/);
+  const maxP = priceMatch ? +priceMatch[1] : Infinity;
+
+  const catMap = { beer:'beer', wine:'wine', whiskey:'whiskey', bourbon:'whiskey', scotch:'whiskey', vodka:'vodka', spirit:'vodka' };
+  const targetCat = catMatch ? catMap[catMatch[0]] : null;
+
+  let results = PRODUCTS.filter(p => {
+    if (targetCat && p.cat !== targetCat) return false;
+    if (sfMatch && !p.tags.includes('sugar-free')) return false;
+    if (gfMatch && !p.tags.includes('gluten-free')) return false;
+    if (lcMatch && !p.tags.includes('low-carb')) return false;
+    if (p.price > maxP) return false;
+    if (!p.inStock) return false;
+    return true;
+  }).slice(0, 4);
+
+  if (results.length) {
+    const list = results.map(p => `• ${p.name} (${p.size}) — $${p.price.toFixed(2)}`).join('\n');
+    const label = [sfMatch?'sugar-free':'', gfMatch?'gluten-free':'', lcMatch?'low-carb':''].filter(Boolean).join(', ');
+    return `Here are some ${label ? label + ' ' : ''}${targetCat || 'drink'} options we carry:\n\n${list}\n\nVisit the Shop page to browse the full selection and filter by your preferences!`;
+  }
+
+  // Popular / recommendation
+  if (/popular|best|recommend|top|favorite/i.test(q)) {
+    const pops = PRODUCTS.filter(p => p.pop && p.inStock).slice(0,4);
+    const list = pops.map(p => `• ${p.name} — $${p.price.toFixed(2)}`).join('\n');
+    return `Our most popular picks right now:\n\n${list}\n\nCome in and we'll help you find exactly what you're looking for!`;
+  }
+
+  // Deals
+  if (/deal|discount|sale|cheap|save|wednesday|wine.*deal/i.test(q))
+    return "We have two great wine deals! 🍷 Every Wednesday (Wine Wednesday): buy 3 wines get 10% off, buy 6+ wines get 15% off — excludes sparkling wine and half gallons. Every other day: buy 6 wines get 10% off, buy 12 wines get 15% off. Mix and match any wines you like! Check the Deals page for full details.";
+
+  // Fallback
+  return "Great question! I'm still learning. For the best answer, give us a call at +1 (302) 286-7049 or email suburbanliq@gmail.com — our team is happy to help!";
+}
+
+function appendMessage(text, role) {
+  const container = document.getElementById('chat-messages');
+  const isBot = role === 'bot';
+  const div = document.createElement('div');
+  div.style.cssText = `display:flex;gap:12px;align-items:flex-start;${isBot?'':'flex-direction:row-reverse;'}`;
+
+  const avatar = isBot
+    ? `<div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#334228,#5A7048);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">🤖</div>`
+    : `<div style="width:36px;height:36px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;">👤</div>`;
+
+  const bubble = isBot
+    ? `<div style="background:var(--sage);border-radius:4px 16px 16px 16px;padding:14px 18px;max-width:500px;white-space:pre-wrap;font-size:14px;line-height:1.7;color:#1A1A1A;">${text}</div>`
+    : `<div style="background:var(--olive-deep);color:white;border-radius:16px 4px 16px 16px;padding:14px 18px;max-width:500px;white-space:pre-wrap;font-size:14px;line-height:1.7;">${text}</div>`;
+
+  div.innerHTML = avatar + `<div>${bubble}</div>`;
+  container.appendChild(div);
+  container.scrollTop = container.scrollHeight;
+}
+
+function appendTyping() {
+  const container = document.getElementById('chat-messages');
+  const div = document.createElement('div');
+  div.id = 'typing-indicator';
+  div.style.cssText = 'display:flex;gap:12px;align-items:flex-start;';
+  div.innerHTML = `
+    <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#334228,#5A7048);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">🤖</div>
+    <div style="background:var(--sage);border-radius:4px 16px 16px 16px;padding:14px 18px;">
+      <div style="display:flex;gap:5px;align-items:center;">
+        <span style="width:8px;height:8px;border-radius:50%;background:var(--olive);animation:bounce 1s infinite 0s;display:inline-block;"></span>
+        <span style="width:8px;height:8px;border-radius:50%;background:var(--olive);animation:bounce 1s infinite .2s;display:inline-block;"></span>
+        <span style="width:8px;height:8px;border-radius:50%;background:var(--olive);animation:bounce 1s infinite .4s;display:inline-block;"></span>
+      </div>
+    </div>`;
+  container.appendChild(div);
+  container.scrollTop = container.scrollHeight;
+}
+
+// Add bounce keyframes
+const style = document.createElement('style');
+style.textContent = `@keyframes bounce { 0%,60%,100%{transform:translateY(0)} 30%{transform:translateY(-6px)} }`;
+document.head.appendChild(style);
+
+function sendChat() {
+  const input = document.getElementById('chat-input');
+  const msg = input.value.trim();
+  if (!msg) return;
+  input.value = '';
+  input.style.height = 'auto';
+
+  appendMessage(msg, 'user');
+  appendTyping();
+
+  setTimeout(() => {
+    const typing = document.getElementById('typing-indicator');
+    if (typing) typing.remove();
+    appendMessage(aiRespond(msg), 'bot');
+  }, 900 + Math.random() * 400);
+}
+
+function fillPrompt(text) {
+  const input = document.getElementById('chat-input');
+  if (input) { input.value = text; input.focus(); }
+}
+
+function autoResize(el) {
+  el.style.height = 'auto';
+  el.style.height = Math.min(el.scrollHeight, 120) + 'px';
+}
+
+// ── AGE GATE ──────────────────────────
+function passAgeGate() {
+  sessionStorage.setItem('age-verified', '1');
+  const gate = document.getElementById('age-gate');
+  gate.style.opacity = '0';
+  gate.style.transition = 'opacity 0.4s ease';
+  setTimeout(() => gate.style.display = 'none', 400);
+}
+function denyAgeGate() {
+  document.getElementById('age-gate').style.display = 'none';
+  const msg = document.getElementById('under21-msg');
+  msg.style.display = 'flex';
+}
+// Skip gate if already verified this session
+if (sessionStorage.getItem('age-verified')) {
+  document.getElementById('age-gate').style.display = 'none';
+}
+
+// ── BACK TO TOP + FLOAT CALL ──────────
+const backTop  = document.getElementById('back-top');
+const floatCall = document.getElementById('float-call');
+function isMobile() { return window.innerWidth < 900; }
+
+window.addEventListener('scroll', () => {
+  const show = window.scrollY > 400;
+  backTop.style.display  = show ? 'flex' : 'none';
+  floatCall.style.display = (show && isMobile()) ? 'flex' : 'none';
+});
+window.addEventListener('resize', () => {
+  if (!isMobile()) floatCall.style.display = 'none';
+});
+
+// ── INIT ──────────────────────────────
+go('home');
+</script>
+</body>
+</html>
