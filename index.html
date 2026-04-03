@@ -121,7 +121,7 @@
       <div style="position:absolute;top:40%;left:30%;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(200,164,60,.18),transparent 70%);pointer-events:none;"></div>
 
       <div style="max-width:1280px;margin:0 auto;padding:80px 24px;width:100%;position:relative;">
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;">
+        <div class="hero-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;">
 
           <!-- Left -->
           <div>
@@ -154,7 +154,7 @@
           </div>
 
           <!-- Right: Mascot -->
-          <div style="display:flex;justify-content:flex-end;">
+          <div class="hero-mascot" style="display:flex;justify-content:flex-end;">
             <div style="position:relative;">
               <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:480px;height:480px;border-radius:50%;background:radial-gradient(circle,rgba(200,164,60,.45) 0%,rgba(200,164,60,.12) 45%,transparent 70%);pointer-events:none;"></div>
               <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:420px;height:420px;border-radius:50%;border:1.5px solid rgba(200,164,60,.25);pointer-events:none;"></div>
@@ -168,7 +168,7 @@
 
     <!-- Slide 2: Extended Hours -->
     <div class="hero-slide" style="background:#1A2810;">
-      <div style="max-width:1280px;margin:0 auto;padding:80px 24px;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;">
+      <div class="slide2-grid" style="max-width:1280px;margin:0 auto;padding:80px 24px;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;">
 
         <!-- Left: Image -->
         <img src="images/hours.png" alt="Extended Hours — Mon-Sat 9AM-11PM, Sunday 10AM-8PM"
@@ -377,7 +377,7 @@
   <!-- Tagline Banner (Screenshot 3) -->
   <section style="background:linear-gradient(135deg,#334228,#5A7048);padding:80px 0;overflow:hidden;">
     <div style="max-width:1280px;margin:0 auto;padding:0 24px;">
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;">
+      <div class="tagline-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;">
         <img src="images/store.png" alt="Better Selection, Better Service"
           loading="lazy"
           style="width:100%;border-radius:20px;box-shadow:0 20px 60px rgba(0,0,0,.35);">
@@ -830,7 +830,7 @@
       <div style="background:white;border-radius:20px;padding:40px;box-shadow:0 4px 16px rgba(42,54,32,.08);">
         <div class="font-display" style="font-size:30px;color:var(--olive-deep);margin-bottom:28px;">SEND A MESSAGE</div>
         <form onsubmit="submitForm(event)" style="display:flex;flex-direction:column;gap:16px;">
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+          <div class="form-name-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
             <div>
               <label style="font-size:13px;font-weight:600;display:block;margin-bottom:5px;color:#4A4A4A;">First Name</label>
               <input type="text" placeholder="John" class="form-input">
@@ -1027,23 +1027,66 @@
 @media (max-width: 900px) {
   .desk-nav { display: none !important; }
   #hamburger { display: block !important; }
+
+  /* Hero grids → single column */
+  .hero-grid { grid-template-columns: 1fr !important; gap: 28px !important; }
+  .slide2-grid { grid-template-columns: 1fr !important; gap: 28px !important; padding: 48px 24px !important; }
+  .tagline-grid { grid-template-columns: 1fr !important; gap: 28px !important; }
+
+  /* Hero slide: let content size naturally */
+  .hero-slide { min-height: auto !important; }
+
+  /* Shop */
   .cat-grid  { grid-template-columns: repeat(2,1fr) !important; }
   .prod-grid { grid-template-columns: repeat(2,1fr) !important; }
   .shop-layout { grid-template-columns: 1fr !important; }
   .shop-layout aside { position: static !important; }
+
+  /* Deals */
   .deals-grid { grid-template-columns: repeat(2,1fr) !important; }
   .bundles-grid { grid-template-columns: 1fr !important; }
+  .deals-strip { grid-template-columns: 1fr !important; }
+
+  /* Other pages */
   .about-grid, .store-grid, .contact-grid { grid-template-columns: 1fr !important; }
   .cta-grid { grid-template-columns: 1fr !important; }
   .vals-grid { grid-template-columns: 1fr !important; }
   .foot-grid { grid-template-columns: 1fr !important; }
-  .deals-strip { grid-template-columns: 1fr !important; }
+  .form-name-grid { grid-template-columns: 1fr !important; }
+
+  /* Reduce section padding */
+  section { padding-top: 48px !important; padding-bottom: 48px !important; }
+
+  /* Popular carousel arrows: pull inside so they don't overflow */
+  #pop-prev { left: 4px !important; }
+  #pop-next { right: 4px !important; }
 }
+
 @media (max-width: 600px) {
+  /* Hero: hide mascot image on small phones, text is the focus */
+  .hero-mascot { display: none !important; }
+
+  /* Tighten hero padding */
+  .hero-grid { gap: 0 !important; }
+  #hero-slider [style*="padding:80px"] { padding-top: 36px !important; padding-bottom: 36px !important; }
+
+  /* Categories: 2 columns on small phones */
   .cat-grid  { grid-template-columns: repeat(2,1fr) !important; }
   .prod-grid { grid-template-columns: repeat(2,1fr) !important; }
   .deals-grid { grid-template-columns: 1fr !important; }
+  .deals-strip { grid-template-columns: 1fr !important; }
+
+  /* Section padding tighter */
+  section { padding-top: 36px !important; padding-bottom: 36px !important; }
+
+  /* Modal */
   #modal-box { border-radius: 14px; }
+
+  /* AI chat: smaller height on phones */
+  #chat-messages { height: 300px !important; }
+
+  /* Prompt chips: smaller */
+  #prompt-chips { gap: 6px !important; }
 }
 </style>
 

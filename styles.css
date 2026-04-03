@@ -136,3 +136,16 @@
     /* Testimonials */
     @media (max-width: 900px) { .test-grid { grid-template-columns: 1fr 1fr !important; } }
     @media (max-width: 600px) { .test-grid { grid-template-columns: 1fr !important; } }
+
+    /* Mobile base tweaks */
+    @media (max-width: 900px) {
+      .hero-slide { min-height: auto !important; }
+      body { overflow-x: hidden; }
+    }
+    @media (max-width: 600px) {
+      .hero-slide { min-height: auto !important; }
+      /* Prevent hero decorative circles from causing horizontal scroll */
+      #hero-slider { overflow: hidden !important; }
+      /* Constrain mascot glow circles */
+      .hero-mascot > div > div { display: none !important; }
+    }
