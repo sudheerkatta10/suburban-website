@@ -1121,6 +1121,12 @@
   /* Hero slide: let content size naturally */
   .hero-slide { min-height: auto !important; }
 
+  /* Tighten hero slide 1 inner padding */
+  #hero-slider [style*="padding:80px"] { padding-top: 40px !important; padding-bottom: 40px !important; }
+
+  /* Home section padding */
+  #pg-home section { padding-top: 40px !important; padding-bottom: 40px !important; }
+
   /* Shop */
   .cat-grid  { grid-template-columns: repeat(2,1fr) !important; }
   .prod-grid { grid-template-columns: repeat(2,1fr) !important; }
@@ -1158,14 +1164,43 @@
   .hero-grid { gap: 0 !important; }
   #hero-slider [style*="padding:80px"] { padding-top: 36px !important; padding-bottom: 36px !important; }
 
-  /* Categories: 2 columns on small phones */
-  .cat-grid  { grid-template-columns: repeat(2,1fr) !important; }
+  /* Categories: 2-row horizontal scroll, 4 visible at a time */
+  .cat-grid {
+    display: grid !important;
+    grid-template-rows: repeat(2, auto) !important;
+    grid-auto-columns: calc(50% - 6px) !important;
+    grid-auto-flow: column !important;
+    overflow-x: auto !important;
+    gap: 12px !important;
+    padding-bottom: 8px !important;
+    scrollbar-width: none !important;
+  }
+  .cat-grid::-webkit-scrollbar { display: none; }
   .prod-grid { grid-template-columns: repeat(2,1fr) !important; }
   .deals-grid { grid-template-columns: 1fr !important; }
   .deals-strip { grid-template-columns: 1fr !important; }
 
   /* Section padding tighter */
-  section { padding-top: 36px !important; padding-bottom: 36px !important; }
+  section { padding-top: 24px !important; padding-bottom: 24px !important; }
+  #pg-home section { padding-top: 24px !important; padding-bottom: 24px !important; }
+
+  /* Testimonials → horizontal swipe carousel */
+  .test-grid {
+    display: flex !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory !important;
+    gap: 14px !important;
+    padding-bottom: 12px !important;
+    scrollbar-width: none !important;
+  }
+  .test-grid::-webkit-scrollbar { display: none; }
+  .test-grid > div {
+    flex: 0 0 85% !important;
+    scroll-snap-align: start !important;
+  }
+
+  /* Hide tagline store image to save vertical space */
+  .tagline-grid img { display: none !important; }
 
   /* Modal */
   #modal-box { border-radius: 14px; }
@@ -1324,7 +1359,13 @@ function renderGrid(id, list) {
 // ── POPULAR TODAY CAROUSEL ─────────────
 let _popItems = [];
 let _popPage  = 0;
-const POP_PER_PAGE = 6;
+function _getPopPerPage() { return window.innerWidth <= 900 ? 2 : 6; }
+
+let _popResizeTimer;
+window.addEventListener('resize', () => {
+  clearTimeout(_popResizeTimer);
+  _popResizeTimer = setTimeout(() => { _popPage = 0; _buildPopTrack(); _updatePopUI(); }, 150);
+});
 
 function initPopularCarousel(products) {
   _popItems = products;
@@ -1336,11 +1377,11 @@ function initPopularCarousel(products) {
 function _buildPopTrack() {
   const track = document.getElementById('popular-track');
   if (!track) return;
-  const numPages = Math.ceil(_popItems.length / POP_PER_PAGE);
+  const numPages = Math.ceil(_popItems.length / _getPopPerPage());
   track.style.width = (numPages * 100) + '%';
   let html = '';
   for (let i = 0; i < numPages; i++) {
-    const slice = _popItems.slice(i * POP_PER_PAGE, (i + 1) * POP_PER_PAGE);
+    const slice = _popItems.slice(i * _getPopPerPage(), (i + 1) * _getPopPerPage());
     html += `<div style="width:${100 / numPages}%;flex-shrink:0;">
       <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px;" class="prod-grid">${slice.map(makeCard).join('')}</div>
     </div>`;
@@ -1349,7 +1390,7 @@ function _buildPopTrack() {
 }
 
 function _updatePopUI() {
-  const numPages = Math.ceil(_popItems.length / POP_PER_PAGE);
+  const numPages = Math.ceil(_popItems.length / _getPopPerPage());
   const track    = document.getElementById('popular-track');
   if (track) track.style.transform = `translateX(-${(_popPage / numPages) * 100}%)`;
 
@@ -1367,7 +1408,7 @@ function _updatePopUI() {
 }
 
 function popNav(dir) {
-  const numPages = Math.ceil(_popItems.length / POP_PER_PAGE);
+  const numPages = Math.ceil(_popItems.length / _getPopPerPage());
   _popPage = Math.max(0, Math.min(numPages - 1, _popPage + dir));
   _updatePopUI();
 }
