@@ -136,6 +136,10 @@
     .hero-slide  { flex: 0 0 100%; width: 100%; min-height: 70vh; display: flex; align-items: flex-start; }
     .slide-dot:hover { opacity: .8; }
 
+    /* Hero mobile/desktop content split */
+    .hero-mobile-bottom { display: none; }
+    .hero-desktop-body  { display: block; }
+
     /* Testimonials */
     @media (max-width: 900px) { .test-grid { grid-template-columns: 1fr 1fr !important; } }
     @media (max-width: 600px) { .test-grid { grid-template-columns: 1fr !important; } }

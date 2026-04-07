@@ -131,25 +131,28 @@
             <h1 class="font-display" style="color:var(--cream);font-size:clamp(52px,7vw,88px);line-height:.95;letter-spacing:-.01em;margin-bottom:24px;">
               FIND YOUR<br>PERFECT<br><span style="color:var(--gold);">DRINK</span>
             </h1>
-            <p style="color:rgba(242,237,227,.75);font-size:17px;line-height:1.7;margin-bottom:32px;max-width:440px;">
-              Newark's premier liquor store. Craft beers, fine wines, premium spirits — curated for every taste and budget.
-            </p>
+            <!-- Desktop: description + search + buttons (hidden on mobile) -->
+            <div class="hero-desktop-body">
+              <p style="color:rgba(242,237,227,.75);font-size:17px;line-height:1.7;margin-bottom:32px;max-width:440px;">
+                Newark's premier liquor store. Craft beers, fine wines, premium spirits — curated for every taste and budget.
+              </p>
 
-            <!-- Search -->
-            <div style="position:relative;max-width:460px;margin-bottom:32px;">
-              <input id="hero-search" type="text" placeholder="Search drinks, brands, categories…"
-                style="width:100%;padding:15px 52px 15px 18px;border-radius:12px;border:1.5px solid rgba(242,237,227,.2);background:rgba(255,255,255,.07);color:var(--cream);font-size:15px;outline:none;backdrop-filter:blur(8px);"
-                onfocus="this.style.borderColor='rgba(200,164,60,.6)'"
-                onblur="this.style.borderColor='rgba(242,237,227,.2)'"
-                onkeydown="if(event.key==='Enter')go('shop')">
-              <button onclick="go('shop')" aria-label="Search products" style="position:absolute;right:12px;top:50%;transform:translateY(-50%);background:none;border:none;color:var(--gold);cursor:pointer;padding:4px;transition:transform 0.15s ease;" onmouseover="this.style.transform='translateY(-50%) scale(1.15)'" onmouseout="this.style.transform='translateY(-50%) scale(1)'">
-                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-              </button>
-            </div>
+              <!-- Search -->
+              <div style="position:relative;max-width:460px;margin-bottom:32px;">
+                <input id="hero-search" type="text" placeholder="Search drinks, brands, categories…"
+                  style="width:100%;padding:15px 52px 15px 18px;border-radius:12px;border:1.5px solid rgba(242,237,227,.2);background:rgba(255,255,255,.07);color:var(--cream);font-size:15px;outline:none;backdrop-filter:blur(8px);"
+                  onfocus="this.style.borderColor='rgba(200,164,60,.6)'"
+                  onblur="this.style.borderColor='rgba(242,237,227,.2)'"
+                  onkeydown="if(event.key==='Enter')go('shop')">
+                <button onclick="go('shop')" aria-label="Search products" style="position:absolute;right:12px;top:50%;transform:translateY(-50%);background:none;border:none;color:var(--gold);cursor:pointer;padding:4px;transition:transform 0.15s ease;" onmouseover="this.style.transform='translateY(-50%) scale(1.15)'" onmouseout="this.style.transform='translateY(-50%) scale(1)'">
+                  <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+                </button>
+              </div>
 
-            <div style="display:flex;flex-wrap:wrap;gap:14px;">
-              <button class="btn-gold" onclick="go('shop')">BROWSE INVENTORY</button>
-              <button class="btn-outline" onclick="go('ai')">Ask AI Assistant</button>
+              <div style="display:flex;flex-wrap:wrap;gap:14px;">
+                <button class="btn-gold" onclick="go('shop')">BROWSE INVENTORY</button>
+                <button class="btn-outline" onclick="go('ai')">Ask AI Assistant</button>
+              </div>
             </div>
           </div>
 
@@ -163,6 +166,41 @@
             </div>
           </div>
         </div>
+
+        <!-- Mobile-only: description + CTA buttons + liquor category strip -->
+        <div class="hero-mobile-bottom">
+          <p style="color:rgba(242,237,227,.8);font-size:14px;line-height:1.65;margin-bottom:18px;">
+            Newark's premier liquor store. Craft beers, fine wines, premium spirits — curated for every taste and budget.
+          </p>
+          <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:22px;">
+            <button class="btn-gold" onclick="go('shop')" style="width:100%;text-align:center;">BROWSE INVENTORY</button>
+            <button class="btn-outline" onclick="go('ai')" style="width:100%;text-align:center;">Ask AI Assistant</button>
+          </div>
+          <!-- Liquor category quick-links -->
+          <div style="display:flex;justify-content:space-around;align-items:center;padding:14px 0;border-top:1px solid rgba(200,164,60,.3);">
+            <div style="text-align:center;cursor:pointer;" onclick="shopCat('beer')">
+              <div style="font-size:28px;">🍺</div>
+              <div style="color:rgba(200,164,60,.85);font-size:9px;font-weight:700;letter-spacing:.08em;margin-top:3px;text-transform:uppercase;">Beer</div>
+            </div>
+            <div style="text-align:center;cursor:pointer;" onclick="shopCat('wine')">
+              <div style="font-size:28px;">🍷</div>
+              <div style="color:rgba(200,164,60,.85);font-size:9px;font-weight:700;letter-spacing:.08em;margin-top:3px;text-transform:uppercase;">Wine</div>
+            </div>
+            <div style="text-align:center;cursor:pointer;" onclick="shopCat('whiskey')">
+              <div style="font-size:28px;">🥃</div>
+              <div style="color:rgba(200,164,60,.85);font-size:9px;font-weight:700;letter-spacing:.08em;margin-top:3px;text-transform:uppercase;">Whiskey</div>
+            </div>
+            <div style="text-align:center;cursor:pointer;" onclick="shopCat('vodka')">
+              <div style="font-size:28px;">🍸</div>
+              <div style="color:rgba(200,164,60,.85);font-size:9px;font-weight:700;letter-spacing:.08em;margin-top:3px;text-transform:uppercase;">Spirits</div>
+            </div>
+            <div style="text-align:center;cursor:pointer;" onclick="shopCat('thc')">
+              <div style="font-size:28px;">🌿</div>
+              <div style="color:rgba(200,164,60,.85);font-size:9px;font-weight:700;letter-spacing:.08em;margin-top:3px;text-transform:uppercase;">THC</div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
 
@@ -1161,17 +1199,17 @@
 }
 
 @media (max-width: 600px) {
-  /* Show mascot image on phones, centered below text */
-  .hero-mascot {
-    display: flex !important;
-    justify-content: center !important;
-    padding-bottom: 8px !important;
-  }
-  .hero-mascot img { width: 170px !important; }
+  /* Hero: keep 2-col layout on phones (text left, mascot right) */
+  .hero-grid { grid-template-columns: 1.25fr 1fr !important; gap: 8px !important; align-items: start !important; }
+  .hero-mascot { display: flex !important; justify-content: center !important; padding-top: 6px !important; }
+  .hero-mascot img { width: 130px !important; }
+
+  /* Hide desktop body (p + search + buttons), show mobile-bottom instead */
+  .hero-desktop-body { display: none !important; }
+  .hero-mobile-bottom { display: block !important; margin-top: 14px; }
 
   /* Tighten hero padding */
-  .hero-grid { gap: 16px !important; }
-  #hero-slider [style*="padding:80px"] { padding-top: 32px !important; padding-bottom: 32px !important; }
+  #hero-slider [style*="padding:80px"] { padding-top: 28px !important; padding-bottom: 24px !important; }
 
   /* Categories: 2-row horizontal scroll, 4 visible at a time */
   .cat-grid {
@@ -1220,17 +1258,12 @@
   /* Prompt chips: smaller */
   #prompt-chips { gap: 6px !important; }
 
-  /* ── Hero: bold heading on phones ── */
+  /* ── Hero: bigger heading on phones ── */
   #hero-slider h1 {
-    font-size: clamp(42px, 11vw, 54px) !important;
-    margin-bottom: 12px !important;
-    line-height: .95 !important;
+    font-size: clamp(44px, 12vw, 58px) !important;
+    margin-bottom: 8px !important;
+    line-height: .93 !important;
   }
-
-  /* Center hero text/content since mascot is hidden */
-  .hero-grid > div:first-child { text-align: center !important; }
-  .hero-grid div[style*="flex-wrap:wrap"] { justify-content: center !important; }
-  .hero-grid div[style*="max-width:460px"] { margin-left: auto !important; margin-right: auto !important; }
 
   /* Hero description tighter on phones */
   #hero-slider .hero-grid p { font-size: 14px !important; margin-bottom: 14px !important; line-height: 1.6 !important; }
