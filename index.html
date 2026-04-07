@@ -205,6 +205,40 @@
       </div>
     </div>
 
+    <!-- Slide 3: Spring / Tito's Display -->
+    <div class="hero-slide" style="background:linear-gradient(135deg,#1A2E1A 0%,#243B18 50%,#2E4A20 100%);">
+      <div class="slide2-grid" style="max-width:1280px;margin:0 auto;padding:80px 24px;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;">
+
+        <!-- Left: Tito's display image -->
+        <div style="display:flex;justify-content:center;align-items:center;">
+          <img src="images/titos display.jpeg" alt="Tito's Vodka Spring Display at Suburban Liquors"
+            style="width:100%;max-height:460px;object-fit:contain;border-radius:20px;box-shadow:0 20px 60px rgba(0,0,0,.5);display:block;">
+        </div>
+
+        <!-- Right: Spring notes -->
+        <div>
+          <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(200,164,60,.15);border:1px solid rgba(200,164,60,.35);color:var(--gold);border-radius:99px;padding:5px 14px;font-size:13px;font-weight:600;margin-bottom:20px;letter-spacing:.04em;">
+            🌸 SPRING IS HERE
+          </div>
+          <h2 class="font-display" style="color:var(--cream);font-size:clamp(30px,4vw,52px);letter-spacing:.02em;line-height:1.1;margin-bottom:24px;">READY FOR<br><span style="color:var(--gold);">SPRING</span></h2>
+          <p style="color:rgba(242,237,227,.8);font-size:17px;line-height:1.75;margin-bottom:18px;">
+            We are ready for spring. We are all prepared for spring.
+          </p>
+          <p style="color:rgba(242,237,227,.7);font-size:16px;line-height:1.75;margin-bottom:18px;">
+            Come explore our store, <strong style="color:var(--cream);">Suburban Liquors</strong>, and discover our freshly stocked shelves just in time for the season. Whether you're hosting a backyard get-together, planning a spring picnic, or simply treating yourself — we've got the perfect pour waiting for you.
+          </p>
+          <p style="color:rgba(242,237,227,.65);font-size:15px;line-height:1.7;margin-bottom:32px;">
+            From crisp whites and rosés to smooth spirits like Tito's, we've curated a spring selection you'll love. Stop in and let us help you find your perfect spring drink.
+          </p>
+          <div style="display:flex;flex-wrap:wrap;gap:14px;">
+            <button class="btn-gold" onclick="go('shop')">EXPLORE SPRING PICKS</button>
+            <button class="btn-outline" onclick="go('store')">VISIT US TODAY</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
   </div><!-- /hero-track -->
 
     <!-- Prev / Next arrows -->
@@ -219,6 +253,7 @@
     <div style="position:absolute;bottom:20px;left:50%;transform:translateX(-50%);display:flex;gap:10px;z-index:10;">
       <button class="slide-dot active" onclick="heroGoTo(0)" style="width:10px;height:10px;border-radius:50%;border:none;cursor:pointer;background:var(--gold);opacity:1;padding:0;transition:background 0.2s,opacity 0.2s;"></button>
       <button class="slide-dot" onclick="heroGoTo(1)" style="width:10px;height:10px;border-radius:50%;border:none;cursor:pointer;background:rgba(255,255,255,.45);opacity:1;padding:0;transition:background 0.2s,opacity 0.2s;"></button>
+      <button class="slide-dot" onclick="heroGoTo(2)" style="width:10px;height:10px;border-radius:50%;border:none;cursor:pointer;background:rgba(255,255,255,.45);opacity:1;padding:0;transition:background 0.2s,opacity 0.2s;"></button>
     </div>
 
   </div><!-- /hero-slider -->
@@ -342,34 +377,75 @@
     </div>
   </section>
 
-  <!-- Popular -->
+  <!-- Popular + THC Side by Side -->
   <section style="padding:80px 0;background:linear-gradient(180deg,#F8EDD8,#FDF4E4);">
     <div style="max-width:1280px;margin:0 auto;padding:0 24px;">
-      <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:40px;">
+      <div class="popular-thc-grid" style="display:grid;grid-template-columns:1fr 340px;gap:48px;align-items:start;">
+
+        <!-- Left: Popular Today carousel -->
         <div>
-          <h2 class="font-display" style="color:var(--olive-deep);font-size:clamp(34px,4vw,52px);letter-spacing:.02em;">POPULAR TODAY</h2>
-          <p style="color:var(--olive);font-size:13px;margin-top:4px;">What customers are loving right now</p>
+          <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:40px;">
+            <div>
+              <h2 class="font-display" style="color:var(--olive-deep);font-size:clamp(34px,4vw,52px);letter-spacing:.02em;">POPULAR TODAY</h2>
+              <p style="color:var(--olive);font-size:13px;margin-top:4px;">What customers are loving right now</p>
+            </div>
+            <button onclick="go('shop')" style="background:none;border:none;color:var(--olive);font-weight:600;font-size:14px;cursor:pointer;text-decoration:underline;text-underline-offset:3px;">View All →</button>
+          </div>
+          <!-- Carousel wrapper -->
+          <div style="position:relative;padding:0 28px;">
+            <button id="pop-prev" onclick="popNav(-1)" aria-label="Previous products"
+              style="position:absolute;left:0;top:50%;transform:translateY(-50%);z-index:2;background:var(--gold);border:none;border-radius:50%;width:44px;height:44px;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.18);display:flex;align-items:center;justify-content:center;opacity:.35;transition:opacity .2s;">
+              <svg width="18" height="18" fill="none" stroke="#1E2E14" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="15,18 9,12 15,6"/></svg>
+            </button>
+            <div style="overflow:hidden;">
+              <div id="popular-track" style="display:flex;transition:transform .45s cubic-bezier(.4,0,.2,1);"></div>
+            </div>
+            <button id="pop-next" onclick="popNav(1)" aria-label="Next products"
+              style="position:absolute;right:0;top:50%;transform:translateY(-50%);z-index:2;background:var(--gold);border:none;border-radius:50%;width:44px;height:44px;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.18);display:flex;align-items:center;justify-content:center;opacity:1;transition:opacity .2s;">
+              <svg width="18" height="18" fill="none" stroke="#1E2E14" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="9,18 15,12 9,6"/></svg>
+            </button>
+            <div id="pop-dots" style="display:flex;justify-content:center;align-items:center;gap:8px;margin-top:28px;"></div>
+          </div>
         </div>
-        <button onclick="go('shop')" style="background:none;border:none;color:var(--olive);font-weight:600;font-size:14px;cursor:pointer;text-decoration:underline;text-underline-offset:3px;">View All →</button>
-      </div>
-      <!-- Carousel wrapper -->
-      <div style="position:relative;">
-        <!-- Prev arrow -->
-        <button id="pop-prev" onclick="popNav(-1)" aria-label="Previous products"
-          style="position:absolute;left:-22px;top:50%;transform:translateY(-50%);z-index:2;background:var(--gold);border:none;border-radius:50%;width:44px;height:44px;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.18);display:flex;align-items:center;justify-content:center;opacity:.35;transition:opacity .2s;">
-          <svg width="18" height="18" fill="none" stroke="#1E2E14" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="15,18 9,12 15,6"/></svg>
-        </button>
-        <!-- Sliding track -->
-        <div style="overflow:hidden;">
-          <div id="popular-track" style="display:flex;transition:transform .45s cubic-bezier(.4,0,.2,1);"></div>
+
+        <!-- Right: THC Video Panel -->
+        <div style="background:linear-gradient(160deg,#1A2E10,#2D5A1E);border-radius:20px;padding:28px;box-shadow:0 0 0 2px var(--gold),0 12px 40px rgba(0,0,0,.3);position:sticky;top:24px;">
+          <div style="display:flex;gap:8px;align-items:center;margin-bottom:14px;">
+            <span style="background:var(--gold);color:#1A2810;font-size:10px;font-weight:800;padding:3px 10px;border-radius:20px;letter-spacing:.1em;text-transform:uppercase;">🌿 NEW</span>
+            <span style="background:rgba(255,255,255,.12);color:rgba(242,237,227,.85);font-size:10px;font-weight:700;padding:3px 10px;border-radius:20px;letter-spacing:.06em;">HEMP-DERIVED</span>
+          </div>
+          <h3 class="font-display" style="color:var(--gold);font-size:28px;letter-spacing:.04em;margin:0 0 8px;">THC BEVERAGES</h3>
+          <p style="color:rgba(242,237,227,.8);font-size:13px;line-height:1.65;margin:0 0 16px;">
+            We carry a wide <strong style="color:var(--gold);">variety</strong> of hemp-derived THC drinks — seltzers, tonics, mushroom blends, and more. Low-dose to high-dose, something for everyone.
+          </p>
+
+          <!-- Variety highlights -->
+          <ul style="list-style:none;padding:0;margin:0 0 18px;display:flex;flex-direction:column;gap:7px;">
+            <li style="color:rgba(242,237,227,.75);font-size:12px;display:flex;align-items:center;gap:8px;"><span style="color:var(--gold);">✓</span> Dayzed 30mg THC</li>
+            <li style="color:rgba(242,237,227,.75);font-size:12px;display:flex;align-items:center;gap:8px;"><span style="color:var(--gold);">✓</span> Amigos 50mg THC (single &amp; 4-pack)</li>
+            <li style="color:rgba(242,237,227,.75);font-size:12px;display:flex;align-items:center;gap:8px;"><span style="color:var(--gold);">✓</span> Euphoria Mushroom THC Blend</li>
+            <li style="color:rgba(242,237,227,.75);font-size:12px;display:flex;align-items:center;gap:8px;"><span style="color:var(--gold);">✓</span> &amp; many more in-store</li>
+          </ul>
+
+          <!-- Video -->
+          <div style="border-radius:12px;overflow:hidden;box-shadow:0 0 0 2px rgba(196,160,60,.5),0 4px 20px rgba(0,0,0,.4);margin-bottom:20px;">
+            <video
+              autoplay
+              muted
+              loop
+              playsinline
+              style="width:100%;display:block;background:#000;max-height:200px;object-fit:cover;"
+              aria-label="THC Beverages product video">
+              <source src="thc video.mp4" type="video/mp4">
+              Your browser does not support HTML5 video.
+            </video>
+          </div>
+
+          <button onclick="shopCat('thc')" style="width:100%;background:var(--gold);color:#1A2810;border:none;padding:13px 20px;border-radius:10px;font-weight:800;font-size:14px;cursor:pointer;letter-spacing:.06em;text-transform:uppercase;transition:opacity .2s,transform .15s;" onmouseover="this.style.opacity='.88';this.style.transform='translateY(-1px)'" onmouseout="this.style.opacity='1';this.style.transform='translateY(0)'">
+            Shop Now THC →
+          </button>
         </div>
-        <!-- Next arrow -->
-        <button id="pop-next" onclick="popNav(1)" aria-label="Next products"
-          style="position:absolute;right:-22px;top:50%;transform:translateY(-50%);z-index:2;background:var(--gold);border:none;border-radius:50%;width:44px;height:44px;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.18);display:flex;align-items:center;justify-content:center;opacity:1;transition:opacity .2s;">
-          <svg width="18" height="18" fill="none" stroke="#1E2E14" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="9,18 15,12 9,6"/></svg>
-        </button>
-        <!-- Dots -->
-        <div id="pop-dots" style="display:flex;justify-content:center;align-items:center;gap:8px;margin-top:28px;"></div>
+
       </div>
     </div>
   </section>
@@ -906,7 +982,7 @@
 <div id="pg-ai" class="page" style="display:none;background:var(--sage);">
   <div style="background:linear-gradient(135deg,#1E2E14 0%,#2C4A1E 45%,#3A5E28 100%);padding:64px 24px;text-align:center;">
     <div style="display:inline-flex;align-items:center;gap:10px;background:rgba(200,164,60,.15);border:1px solid rgba(200,164,60,.35);color:var(--gold);border-radius:99px;padding:6px 16px;font-size:13px;font-weight:600;margin-bottom:20px;">
-      🤖 Coming Soon — AI-Powered
+      🤖 Powered by Claude AI
     </div>
     <h1 class="font-display" style="color:var(--cream);font-size:clamp(40px,6vw,72px);">AI <span style="color:var(--gold);">ASSISTANT</span></h1>
     <p style="color:rgba(242,237,227,.65);margin-top:8px;">Ask anything about our drinks, recommendations, and more</p>
@@ -961,7 +1037,7 @@
     </div>
 
     <p style="text-align:center;font-size:12px;color:#9CA3AF;margin-top:16px;">
-      This is a demo AI assistant. Responses are generated from our product catalog. Real AI integration coming soon.
+      AI responses are generated by Claude. For urgent needs, call us at (302) 286-7049.
     </p>
   </div>
 </div>
@@ -1032,6 +1108,7 @@
   .hero-grid { grid-template-columns: 1fr !important; gap: 28px !important; }
   .slide2-grid { grid-template-columns: 1fr !important; gap: 28px !important; padding: 48px 24px !important; }
   .tagline-grid { grid-template-columns: 1fr !important; gap: 28px !important; }
+  .popular-thc-grid { grid-template-columns: 1fr !important; gap: 36px !important; }
 
   /* Hero slide: let content size naturally */
   .hero-slide { min-height: auto !important; }
@@ -1142,7 +1219,7 @@ const DESCS = {
 // ── HERO SLIDER ───────────────────────
 (function() {
   let cur = 0;
-  const total = 2;
+  const total = 3;
   function heroShow(n) {
     const track = document.getElementById('hero-track');
     const dots  = document.querySelectorAll('.slide-dot');
@@ -1523,6 +1600,8 @@ const style = document.createElement('style');
 style.textContent = `@keyframes bounce { 0%,60%,100%{transform:translateY(0)} 30%{transform:translateY(-6px)} }`;
 document.head.appendChild(style);
 
+let chatHistory = [];
+
 function sendChat() {
   const input = document.getElementById('chat-input');
   const msg = input.value.trim();
@@ -1533,11 +1612,26 @@ function sendChat() {
   appendMessage(msg, 'user');
   appendTyping();
 
-  setTimeout(() => {
+  chatHistory.push({ role: 'user', content: msg });
+
+  fetch('/api/chat', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ messages: chatHistory })
+  })
+  .then(r => r.json())
+  .then(data => {
     const typing = document.getElementById('typing-indicator');
     if (typing) typing.remove();
-    appendMessage(aiRespond(msg), 'bot');
-  }, 900 + Math.random() * 400);
+    const reply = data.reply || data.error || "Sorry, I'm having trouble right now. Please call us at (302) 286-7049!";
+    chatHistory.push({ role: 'assistant', content: reply });
+    appendMessage(reply, 'bot');
+  })
+  .catch(() => {
+    const typing = document.getElementById('typing-indicator');
+    if (typing) typing.remove();
+    appendMessage("Sorry, I'm having trouble connecting. Please call us at (302) 286-7049!", 'bot');
+  });
 }
 
 function fillPrompt(text) {
