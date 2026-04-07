@@ -1161,12 +1161,17 @@
 }
 
 @media (max-width: 600px) {
-  /* Hero: hide mascot image on small phones, text is the focus */
-  .hero-mascot { display: none !important; }
+  /* Show mascot image on phones, centered below text */
+  .hero-mascot {
+    display: flex !important;
+    justify-content: center !important;
+    padding-bottom: 8px !important;
+  }
+  .hero-mascot img { width: 170px !important; }
 
   /* Tighten hero padding */
-  .hero-grid { gap: 0 !important; }
-  #hero-slider [style*="padding:80px"] { padding-top: 36px !important; padding-bottom: 36px !important; }
+  .hero-grid { gap: 16px !important; }
+  #hero-slider [style*="padding:80px"] { padding-top: 32px !important; padding-bottom: 32px !important; }
 
   /* Categories: 2-row horizontal scroll, 4 visible at a time */
   .cat-grid {
@@ -1215,11 +1220,11 @@
   /* Prompt chips: smaller */
   #prompt-chips { gap: 6px !important; }
 
-  /* ── Hero: smaller heading on phones ── */
+  /* ── Hero: bold heading on phones ── */
   #hero-slider h1 {
-    font-size: clamp(32px, 9vw, 42px) !important;
+    font-size: clamp(42px, 11vw, 54px) !important;
     margin-bottom: 12px !important;
-    line-height: 1 !important;
+    line-height: .95 !important;
   }
 
   /* Center hero text/content since mascot is hidden */
