@@ -116,6 +116,9 @@
     ::-webkit-scrollbar-track { background: var(--sage-mid); }
     ::-webkit-scrollbar-thumb { background: var(--olive); border-radius: 4px; }
 
+    /* Home page — tighter section padding */
+    #pg-home section { padding-top: 56px; padding-bottom: 56px; }
+
     /* Mobile menu */
     #mob-menu { }
     #mob-menu.hidden { display: none; }
@@ -130,7 +133,7 @@
     /* Hero slider */
     #hero-slider { position: relative; overflow: hidden; }
     #hero-track  { display: flex; transition: transform 0.7s cubic-bezier(0.77,0,0.175,1); will-change: transform; }
-    .hero-slide  { flex: 0 0 100%; width: 100%; min-height: 88vh; display: flex; align-items: flex-start; }
+    .hero-slide  { flex: 0 0 100%; width: 100%; min-height: 70vh; display: flex; align-items: flex-start; }
     .slide-dot:hover { opacity: .8; }
 
     /* Testimonials */
