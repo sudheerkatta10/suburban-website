@@ -619,10 +619,18 @@
   </div>
 
   <div style="max-width:1280px;margin:0 auto;padding:48px 24px;">
+
+    <!-- Mobile filter toggle (hidden on desktop) -->
+    <button id="shop-filter-btn" onclick="toggleShopFilters()"
+      style="display:none;align-items:center;gap:8px;margin-bottom:16px;background:var(--olive-deep);color:var(--cream);border:none;border-radius:10px;padding:11px 20px;font-size:14px;font-weight:600;cursor:pointer;width:100%;justify-content:center;">
+      <svg id="shop-filter-icon" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" aria-hidden="true"><line x1="4" y1="6" x2="20" y2="6"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="11" y1="18" x2="13" y2="18"/></svg>
+      <span id="shop-filter-label">Show Filters</span>
+    </button>
+
     <div style="display:grid;grid-template-columns:260px 1fr;gap:32px;align-items:start;" class="shop-layout">
 
       <!-- Sidebar -->
-      <aside style="background:white;border-radius:18px;padding:28px;box-shadow:0 4px 16px rgba(42,54,32,.08);position:sticky;top:80px;">
+      <aside id="shop-sidebar" style="background:white;border-radius:18px;padding:28px;box-shadow:0 4px 16px rgba(42,54,32,.08);position:sticky;top:80px;">
         <div class="font-display" style="font-size:26px;color:var(--olive-deep);margin-bottom:24px;letter-spacing:.04em;">FILTERS</div>
 
         <!-- Category -->
@@ -1118,6 +1126,9 @@
   .prod-grid { grid-template-columns: repeat(2,1fr) !important; }
   .shop-layout { grid-template-columns: 1fr !important; }
   .shop-layout aside { position: static !important; }
+  #shop-filter-btn { display: flex !important; }
+  #shop-sidebar { display: none; }
+  #shop-sidebar.open { display: block; }
 
   /* Deals */
   .deals-grid { grid-template-columns: repeat(2,1fr) !important; }
@@ -1171,6 +1182,14 @@
      JAVASCRIPT
 ══════════════════════════════════════ -->
 <script>
+// ── SHOP FILTER TOGGLE ────────────────
+function toggleShopFilters() {
+  const sidebar = document.getElementById('shop-sidebar');
+  const label   = document.getElementById('shop-filter-label');
+  const open    = sidebar.classList.toggle('open');
+  label.textContent = open ? 'Hide Filters' : 'Show Filters';
+}
+
 // ── DATA ──────────────────────────────
 const PRODUCTS = [
   {id:1,  name:"Blue Moon",             cat:"beer",    price:5.59,  size:"4-pack 16oz",  tags:[],                          inStock:true,  pop:true,  emoji:"🍺"},
