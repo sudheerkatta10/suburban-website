@@ -1154,6 +1154,10 @@
   /* Popular carousel arrows: pull inside so they don't overflow */
   #pop-prev { left: 4px !important; }
   #pop-next { right: 4px !important; }
+
+  /* Constrain and center mascot on tablets (600-900px) */
+  .hero-mascot { justify-content: center !important; }
+  .hero-mascot img { width: 200px !important; }
 }
 
 @media (max-width: 600px) {
@@ -1210,6 +1214,46 @@
 
   /* Prompt chips: smaller */
   #prompt-chips { gap: 6px !important; }
+
+  /* ── Hero: smaller heading on phones ── */
+  #hero-slider h1 {
+    font-size: clamp(32px, 9vw, 42px) !important;
+    margin-bottom: 12px !important;
+    line-height: 1 !important;
+  }
+
+  /* Center hero text/content since mascot is hidden */
+  .hero-grid > div:first-child { text-align: center !important; }
+  .hero-grid div[style*="flex-wrap:wrap"] { justify-content: center !important; }
+  .hero-grid div[style*="max-width:460px"] { margin-left: auto !important; margin-right: auto !important; }
+
+  /* Hero description tighter on phones */
+  #hero-slider .hero-grid p { font-size: 14px !important; margin-bottom: 14px !important; line-height: 1.6 !important; }
+
+  /* Hero badge smaller */
+  #hero-slider div[style*="inline-flex"][style*="border-radius:99px"] { font-size: 12px !important; padding: 4px 10px !important; margin-bottom: 14px !important; }
+
+  /* Slide 2/3: compact image heights on phones */
+  .slide2-grid img { max-height: 200px !important; }
+  .slide2-grid { padding-top: 28px !important; padding-bottom: 28px !important; }
+
+  /* Slide 2/3 paragraph font + margins */
+  .slide2-grid p { font-size: 14px !important; margin-bottom: 12px !important; line-height: 1.6 !important; }
+
+  /* Full-width hero buttons for easy thumb-tapping */
+  #hero-slider .btn-gold,
+  #hero-slider .btn-outline { width: 100% !important; text-align: center !important; }
+
+  /* Slide 3 button group stacks vertically */
+  .slide2-grid div[style*="flex-wrap:wrap"] { flex-direction: column !important; }
+  .slide2-grid .btn-gold,
+  .slide2-grid .btn-outline { width: 100% !important; text-align: center !important; }
+
+  /* Hero slider dots move up slightly */
+  #hero-slider > div[style*="bottom:20px"] { bottom: 12px !important; }
+
+  /* Nav mobile: bigger tap targets */
+  #mob-menu .nav-link { padding: 10px 0 !important; font-size: 17px !important; min-height: 44px !important; display: flex !important; align-items: center !important; }
 }
 </style>
 
